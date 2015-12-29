@@ -1,10 +1,44 @@
-layout: post
-title: js控制摄像头演示
-date: 2015-12-23 12:00:27
-tags: html5
----
-### html 结构
-``` html
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>视频,拍照</title>
+    <meta charset='utf-8'>
+    <style type="text/css">
+    div {
+        box-sizing: border-box;
+    }
+    .fl {
+        float: left;
+    }
+    .container {
+        overflow: hidden;
+    }
+    .container:after {
+        clear: both;
+        display: block;
+        content: '';
+        width: 1px;
+        height: 1px;
+    }
+    .video-box {
+        border: 1px solid #ddd;
+        width: 49%;
+    }
+    .video-box video {
+        width: 600px;
+        height: 450px;
+    }
+    .control-bar  {
+        text-align: center;
+    }
+    canvas {
+        display: none;
+    }
+    </style>
+</head>
+
+<body>
 <div class="container">
     <div class="video-box fl">
         <video id="webcam"></video>
@@ -17,15 +51,12 @@ tags: html5
 <div class="control-bar">
     <button id="take-a-picture">拍照</button>
 </div>
-```
 
-
-### js 代码
-```javascript
+    <script>
     var vendors = ['Webkit', 'Moz', 'O'];
     navigator.getUserMedia = navigator.getUserMedia ||
-        navigator.webkitGetUserMedia ||
-        navigator.mozGetUserMedia;
+                             navigator.webkitGetUserMedia ||
+                             navigator.mozGetUserMedia;
 
     var video = document.getElementById('webcam');
     var photo = document.getElementById('photo');
@@ -71,8 +102,7 @@ tags: html5
             photo.src = canvas.toDataURL('image/png');
         }
     }
-```
+    </script>
+</body>
 
-[完整demo](/demo/webRTC/)
-
-
+</html>
