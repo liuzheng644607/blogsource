@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <style type="text/css">
+
+    </style>
+</head>
+
+<body>
+下面的时间会5秒钟更新一次
+<div class="box"></div>
+<script>
+var source = new EventSource('api.php');
+var box = document.querySelector('.box');
+source.onopen = function(event) {
+    box.innerText = 'open事件触发了: 消息' + JSON.stringify(event);
+};
+
+source.onmessage = function(event) {
+    console.log(event);
+    box.innerText = 'message事件触发了: 现在的时间是:' + event.data;
+};
+
+source.onerror = function(event) {
+    box.innerText = 'error事件触发了:' + JSON.stringify(event);
+};
+</script>
+</body>
+
+</html>
