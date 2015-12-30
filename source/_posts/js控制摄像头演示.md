@@ -74,7 +74,7 @@ tags: html5
 ```
 
 [完整demo](/demo/webRTC/)
-chrome可能不能使用此功能，出现如下警告。换个浏览器试试呢, firefox
+我使用此功能的时候是实验性的功能，当时chrome提示过这个功能可能会在未来变更。现在果真不能随意使用了,chrome做了安全限制,只允许在https协议下才能使用此功能(getUserMedia)。出现如下警告。![大哭](http://img.t.sinajs.cn/t35/style/images/common/face/ext/normal/9d/sada_org.gif)
 > getUserMedia() no longer works on insecure origins. To use this feature, you should consider switching your application to a secure origin, such as HTTPS. See https://goo.gl/rStTGz for more details.
 
 
