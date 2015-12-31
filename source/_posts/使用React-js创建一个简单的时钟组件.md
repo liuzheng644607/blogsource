@@ -1,6 +1,6 @@
 layout: post
 title: 使用React.js创建一个简单的时钟组件
-date: 2015-12-30 14:24:26
+date: 2015-12-5 14:24:26
 tags: [React.js,javascript]
 ---
 刚刚学习ReactJs不久, 对React中提到的一些概念比较喜欢，比如虚拟Dom，组件化等。

@@ -1,6 +1,6 @@
 layout: post
 title: js控制摄像头演示
-date: 2015-12-23 12:00:27
+date: 2015-9-23 12:00:27
 tags: html5
 ---
 ### html 结构
