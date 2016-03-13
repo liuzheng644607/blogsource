@@ -1,6 +1,6 @@
 layout: post
 title: javascript操作DOM中遇到的一些坑
-date: 2016-03-12 18:18:14
+date: 2016-01-12 18:18:14
 tags: javascript
 ---
 > 来源知乎：https://www.zhihu.com/question/29072028/answer/43095799
