@@ -12,6 +12,7 @@ tags: CSS
 type="number" 的css
 
 这个类型的input，我主要是需要自定义那个默认的向上向下箭头，它有::-webkit-inner-spin-button这个为元素,这便是箭头的默认元素啦~~~。 这是如何发现的? 在任意input框上使用chrome 审查元素就可以看到渲染的信息，前提是需要在chrome的settings->General里把 Elements 下面的**Show user agent shadow DOM**给勾选上。这里需要将他的appearance属性值设置为none,这样我们就看不见默认的箭头了，那么如何才能创建箭头呢？我使::before与::after来模拟，这两个伪元素 创建了两个三角形(关于如何使用元素画出三角形，请自行Google)。代码如下:
+<!-- more -->
 ```css
     /*number*/
     input[type="number"]::-webkit-inner-spin-button{

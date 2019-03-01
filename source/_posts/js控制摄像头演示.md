@@ -18,7 +18,7 @@ tags: html5
     <button id="take-a-picture">拍照</button>
 </div>
 ```
-
+<!-- more -->
 
 ### js 代码
 ```javascript
