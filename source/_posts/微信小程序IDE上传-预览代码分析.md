@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 微信小程序IDE上传/预览代码分析
-date: 2019-03-01 18:45:37
+date: 2019-01-13 18:45:37
 tags: [小程序]
 ---
 
@@ -10,6 +10,7 @@ tags: [小程序]
 ## 打包源代码
 主要步骤就是，遍历小程序项目目录，读取每一个文件，最终合并成一个文件
 内容如下：packFile.js
+
 ```
 const a = require("glob"),
 b = require("fs"),
