@@ -5,14 +5,14 @@ date: 2017-07-01 16:30:01
 tags: ['echarts', 'javascript']
 ---
 
-##前言##
+## 前言 ##
 [echarts](https://github.com/ecomfe/echarts)是百度前端团队推出的一个非常强大的开源图表库，我最近在重构的一个内部后台系统也用到了echarts，但是梳理老代码的时候发现有人居然改了`node_modules/echarts`里面的代码😢。梳理了一下功能，其实当时的需求就只想把“保存图片”的那个按钮的逻辑改为下载excel（也不知道为什么产品要在这个位置放导excel的按钮...）。
 
 ![ecahrts中的toolbox](http://upload-images.jianshu.io/upload_images/188895-d9b08ece2fe42010.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 <!-- more -->
 
-##开始##
+## 开始 ##
 我顺着echarts找到了toolbox模块，在`node_modules/lib/component/toolbox/feature` 下面有几个文件就是echarts toolbox已有的一些功能。发现几个功能都是需要实现同样一套接口来添加对应的按钮和功能，于是照葫芦画瓢，按照`SaveAsImage.js` 里面的代码实现一个类似的下载excel的工具。需要给class指定一个类属性`defaultOption`为默认配置，需要实现`onclick`方法。
 
 **SaveAsExcel.js**
@@ -59,7 +59,7 @@ require('echarts/lib/component/toolbox/featureManager').register(
     SaveAsExcel
 );
 ```
-##使用##
+## 使用 ##
 如果你要在项目中引入全量的echarts，需要在引入echarts之前 引入SaveAsExcel.js
 ```javascript
 import './yourPath/SaveAsExcel';
