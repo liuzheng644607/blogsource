@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <title>des_mobile_intern</title>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <meta name="format-detection" content="telephone=no,email=no">
+</head>
+<body>
+<h2>deviceorientation,设备旋转事件</h2>
+<div class="box">
+
+</div>
+<h2>devicemotion,设备移动事件</h2>
+<div class="test2">
+
+</div>
+<script>
+var box = document.querySelector('.box');
+var test2 = document.querySelector('.test2');
+window.addEventListener('deviceorientation', function(event) {
+    var str = 'alpha也就是x轴偏移:' + event.alpha +
+            '<br/>beta也就是z轴偏移:' + event.beta +
+            '<br/>gamma也就是y轴偏移:' + event.gamma;
+    box.innerHTML = str;
+});
+window.addEventListener('devicemotion', function(event) {
+    var str = 'acceleration:在不考虑自然重力下每个方向的加速度:';
+    var ac1 = '<br/>x:' + event.acceleration.x;
+        ac1 += '<br/>y:' + event.acceleration.y;
+        ac1 += '<br/>z:' + event.acceleration.z;
+    var ac2 = '<br/>accelerationIncludingGravity:考虑自然重力:';
+        ac2 += '<br/>x:' + event.accelerationIncludingGravity.x;
+        ac2 += '<br/>y:' + event.accelerationIncludingGravity.y;
+        ac2 += '<br/>z:' + event.accelerationIncludingGravity.z;
+        test2.innerHTML = str + ac1 +ac2;
+});
+</script>
+</body>
+</html>

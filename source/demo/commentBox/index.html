@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head><meta name="generator" content="Hexo 3.8.0">
+    <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <style>
+    .content {
+        min-height: 100px;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="commentBox">
+        <iframe name="editor" class="content">
+        </iframe>
+        <div class="controlBar">
+            <span class="js_edit_img">图像</span>
+            <span class="js_edit_emoji">表情</span>
+            <span class="js_edit_at">@</span>
+        </div>
+    </div>
+    <script>
+    frames.editor.document.designMode = 'on';
+    var commentBox = document.querySelector('.commentBox');
+    var content = document.querySelector('.content');
+    var buttonInsertImg = document.querySelector('.js_edit_img');
+    buttonInsertImg.addEventListener('click', pickImg, false);
+    function pickImg() {
+        var imgSrc = prompt("请输入图片地址");
+        if (imgSrc) {
+            var img = new Image();
+            img.src = imgSrc;
+            img.onload = function() {
+                insertImg(imgSrc);
+            };
+            img.onerror = function() {
+
+            };
+        }
+    }
+    function insertImg(src) {
+        frames.editor.document.execCommand('insertimage',false, src);
+    }
+    </script>
+</body>
+
+</html>

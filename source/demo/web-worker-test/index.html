@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head><meta name="generator" content="Hexo 3.8.0">
+    <title>web worker + pako库 本地压缩</title>
+    <meta charset="utf-8">
+    <style type="text/css">
+    .console {
+        border: 1px solid #ccc;
+        min-height: 500px;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <input type="file" id="pickFile">请不要选择过大文件...毕竟是浏览器.要崩溃
+    </div>
+    <div class="box">
+        <textarea name id="text" cols="30" rows="10"></textarea>
+    </div>
+    <label>
+        <input name="fileType" type="radio" value="file">压缩选中的文件</label>
+    <label>
+        <input name="fileType" type="radio" value="char" checked="true">压缩字符串</label>
+    <div>
+        压缩算法
+        <select name="type" id="compress-type">
+            <option value="deflate">deflate</option>
+            <option value="deflateRaw">deflateRaw</option>
+            <option value="gzip">gzip</option>
+        </select>
+        <button id="compress">压缩</button>
+    </div>
+    <button id="clear-log">清除log</button>
+    <div>返回结果类型是Uint8Array </div>
+    <div class="console">
+    </div>
+    <script>
+    var btnFile = document.getElementById('pickFile');
+    var btnCompress = document.getElementById('compress');
+    var text = document.getElementById('text');
+    var selectType = document.getElementById('compress-type');
+    var inputType = document.querySelectorAll('input[name="fileType"]');
+    var log = document.querySelector('.console');
+    var btnClearLog = document.querySelector('#clear-log');
+
+    var worker = new Worker('zip.js');
+    worker.onmessage = function(e) {
+        var str = '<div style="border:1px dashed #ccc; padding:10px; margin-top: 10px; word-wrap: break-word">' + (e.data) + '</div>';
+        log.insertAdjacentHTML('afterbegin', str);
+    };
+
+    btnClearLog.addEventListener('click', function(e) {
+        log.innerHTML = '';
+    }, false);
+
+    btnCompress.addEventListener('click', function(e) {
+        var type,
+            compressType;
+        [].forEach.call(inputType, function(item, index) {
+            item.checked && (type = item.value);
+        });
+        compressType = selectType.options[selectType.selectedIndex].value;
+
+        var data;
+        if (type === 'file') {
+            data = btnFile.files[0];
+        } else if (type === 'char') {
+            data = text.value;
+        }
+        worker.postMessage({
+            data: data,
+            compressType: compressType,
+        });
+    }, false);
+    btnFile.addEventListener('change', function(e) {
+    }, false);
+    </script>
+</body>
+
+</html>

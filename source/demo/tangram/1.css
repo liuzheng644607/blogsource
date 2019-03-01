@@ -1,0 +1,182 @@
+.tangram {
+  position: relative;
+  width: 500px;
+  height: 500px;
+  margin: 20px auto;
+  -weblot-transition: all .3s;
+}
+.tangram:hover .triangle-big-down,
+.tangram:hover .triangle-big-right,
+.tangram:hover .triangle1,
+.tangram:hover .triangle2,
+.tangram:hover .square,
+.tangram:hover .diamond,
+.tangram:hover .triangle-middle {
+  -webkit-transform: translate(0, 0) rotate(0deg);
+  -moz-transform: translate(0, 0) rotate(0deg);
+  -o-transform: translate(0, 0) rotate(0deg);
+  -ms-transform: translate(0, 0) rotate(0deg);
+  transform: translate(0, 0) rotate(0deg);
+}
+.triangle-big-down,
+.triangle-big-right,
+.triangle1,
+.triangle2,
+.square,
+.diamond,
+.triangle-middle {
+  -webkit-transition: all 2s ease-in-out;
+  -moz-transition: all 2s ease-in-out;
+  -o-transition: all 2s ease-in-out;
+  transition: all 2s ease-in-out;
+  transition-delay: .2s;
+  -webkit-transition-delay: .2s;
+}
+.triangle-big-down {
+  -webkit-transform: translate(-331px, 34px) rotate(80deg);
+  -moz-transform: translate(-331px, 34px) rotate(80deg);
+  -o-transform: translate(-331px, 34px) rotate(80deg);
+  -ms-transform: translate(-331px, 34px) rotate(80deg);
+  transform: translate(-331px, 34px) rotate(80deg);
+}
+.triangle-big-right {
+  -webkit-transform: translate(-450px, 200px) rotateX(-180deg) rotate(270deg);
+  -moz-transform: translate(-450px, 200px) rotateX(-180deg) rotate(270deg);
+  -o-transform: translate(-450px, 200px) rotateX(-180deg) rotate(270deg);
+  -ms-transform: translate(-450px, 200px) rotateX(-180deg) rotate(270deg);
+  transform: translate(-450px, 200px) rotateX(-180deg) rotate(270deg);
+}
+.triangle1 {
+  -webkit-transform: translate(300px, 200px) rotate(135deg);
+  -moz-transform: translate(300px, 200px) rotate(135deg);
+  -o-transform: translate(300px, 200px) rotate(135deg);
+  -ms-transform: translate(300px, 200px) rotate(135deg);
+  transform: translate(300px, 200px) rotate(135deg);
+}
+.triangle2 {
+  -webkit-transform: translate(120px, -300px) rotate(45deg);
+  -moz-transform: translate(120px, -300px) rotate(45deg);
+  -o-transform: translate(120px, -300px) rotate(45deg);
+  -ms-transform: translate(120px, -300px) rotate(45deg);
+  transform: translate(120px, -300px) rotate(45deg);
+}
+.diamond {
+  -webkit-transform: translate(-170px, 50px) rotate(-90deg);
+  -moz-transform: translate(-170px, 50px) rotate(-90deg);
+  -o-transform: translate(-170px, 50px) rotate(-90deg);
+  -ms-transform: translate(-170px, 50px) rotate(-90deg);
+  transform: translate(-170px, 50px) rotate(-90deg);
+}
+.square {
+  -webkit-transform: translate(-100px, 80px) rotate(-135deg);
+  -moz-transform: translate(-100px, 80px) rotate(-135deg);
+  -o-transform: translate(-100px, 80px) rotate(-135deg);
+  -ms-transform: translate(-100px, 80px) rotate(-135deg);
+  transform: translate(-100px, 80px) rotate(-135deg);
+}
+.triangle-middle {
+  -webkit-transform: translate(150px, -50px) rotateY(180deg) rotate(20deg);
+  -moz-transform: translate(150px, -50px) rotateY(180deg) rotate(20deg);
+  -o-transform: translate(150px, -50px) rotateY(180deg) rotate(20deg);
+  -ms-transform: translate(150px, -50px) rotateY(180deg) rotate(20deg);
+  transform: translate(150px, -50px) rotateY(180deg) rotate(20deg);
+}
+.triangle-big-down {
+  rotate: 45deg;
+}
+.triangle-big-down {
+  width: 0;
+  height: 0;
+  position: absolute;
+  left: 5px;
+  top: 0;
+  border-top: 250px solid rgba(255, 0, 0, 0.5);
+  border-left: 250px solid transparent;
+  border-right: 250px solid transparent;
+}
+.triangle-big-right {
+  width: 0;
+  height: 0;
+  position: absolute;
+  left: 0;
+  top: 5px;
+  border-top: 250px solid transparent;
+  border-left: 250px solid rgba(255, 127, 0, 0.66);
+  border-bottom: 250px solid transparent;
+}
+.triangle-small-left {
+  width: 0;
+  height: 0;
+  position: absolute;
+  border-top: 125px solid transparent;
+  border-right: 125px solid #333333;
+  border-bottom: 125px solid transparent;
+}
+.triangle-small-up {
+  width: 0;
+  height: 0;
+  position: absolute;
+  border-left: 125px solid transparent;
+  border-bottom: 125px solid #666666;
+  border-right: 125px solid transparent;
+}
+.triangle-small-down {
+  width: 0;
+  height: 0;
+  position: absolute;
+  border-left: 125px solid transparent;
+  border-top: 125px solid #666666;
+  border-right: 125px solid transparent;
+}
+.triangle1 {
+  left: 390px;
+  top: 5px;
+  margin-top: -5px;
+  border-right-color: rgba(255, 255, 0, 0.61);
+}
+.triangle2 {
+  left: 130px;
+  top: 260px;
+  border-bottom-color: rgba(0, 255, 0, 0.49);
+}
+.diamond {
+  position: absolute;
+  left: 0;
+  margin-top: -5px;
+  top: 395px;
+  width: 375px;
+  height: 125px;
+}
+.diamond .triangle-small-down {
+  left: 125px;
+  position: absolute;
+  border-top-color: rgba(0, 255, 255, 0.57);
+}
+.diamond .triangle-small-up {
+  border-bottom-color: rgba(0, 255, 255, 0.57);
+}
+.square {
+  position: absolute;
+  left: 260px;
+  top: 130px;
+}
+.square .triangle-small-down {
+  top: 125px;
+  border-top-color: rgba(0, 0, 255, 0.49);
+}
+.square .triangle-small-up {
+  border-bottom-color: rgba(0, 0, 255, 0.49);
+}
+.triangle-middle {
+  position: absolute;
+  left: 265px;
+  top: 265px;
+}
+.triangle-middle .triangle-small-up {
+  top: 125px;
+  border-bottom-color: rgba(139, 0, 255, 0.56);
+}
+.triangle-middle .triangle-small-left {
+  left: 125px;
+  border-right-color: rgba(139, 0, 255, 0.56);
+}

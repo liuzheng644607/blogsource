@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head><meta name="generator" content="Hexo 3.8.0">
+    <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+</head>
+
+<body>
+    <canvas height="500" width="500" id="canvas">
+
+    </canvas>
+    <script>
+    var p1 = [1, 2];
+    var p2 = [400, 100];
+    var p3 = [200, 300];
+
+    var canvas = document.querySelector('#canvas');
+    var ctx = canvas.getContext('2d');
+    ctx.moveTo(p1[0], p1[1]);
+    ctx.lineTo(p2[0], p2[1]);
+    ctx.lineTo(p3[0], p3[1]);
+    ctx.lineTo(p1[0], p1[1]);
+    ctx.stroke();
+
+
+    </script>
+</body>
+
+</html>

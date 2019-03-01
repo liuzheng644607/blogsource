@@ -1,0 +1,53 @@
+.box {
+    margin-top: 100px;
+}
+
+.control-bar {
+    padding: 10px;
+}
+
+.center {
+    text-align: center;
+}
+
+.dropdown-menu {
+    float: none;
+    display: block;
+    position: static;
+    padding: 0;
+}
+
+.dropdown-menu > li {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.dropdown-menu > li >a {
+    padding: 12px;
+    font-size: 16px;
+    color: #999
+}
+
+.dropdown-menu > li >a .close {
+    visibility: hidden;
+    color: #c9302c;
+}
+
+.dropdown-menu > li >a >label {
+    display: block;
+    margin-bottom: 0;
+}
+
+.dropdown-menu > li >a:hover .close {
+    visibility: visible;
+}
+
+.dropdown-menu > li >a input,
+.dropdown-menu > li >a span {
+    margin: 0;
+    vertical-align: middle;
+}
+
+.dropdown-menu > li >a span {
+    margin-left: 13px;
+    font-size: 20px;
+}

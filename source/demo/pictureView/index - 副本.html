@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head><meta name="generator" content="Hexo 3.8.0">
+    <title>图片预览</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <link rel="stylesheet" href="css.css">
+    <script src="zepto.js"></script>
+    <script src="PreviewImage.js"></script>
+    <style>
+    html,
+    body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+
+    .box {
+        height: 100%;
+        width: 100%;
+        position: relative;
+        overflow: hidden;
+        background-color: #000;
+    }
+
+    li {
+        background-color: gray;
+    }
+
+    .cur {
+        background-color: yellow;
+    }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li class="cur"></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <script>
+    $('ul').on('click', function(e) {
+        e = e || window.event;
+        var target = e.target || e.srcElement;
+        if (target.nodeName === 'LI') {
+            $(this).find('li').removeClass('cur');
+            $(target).addClass('cur');
+        }
+    });
+    </script>
+</body>
+
+</html>

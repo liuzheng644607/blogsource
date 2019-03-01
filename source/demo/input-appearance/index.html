@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <title>input 样式测试</title>
+    <style type="text/css">
+    a,input{
+	    -webkit-tap-highlight-color: rgba(0,0,0,0);
+	    -webkit-tap-highlight-color: transparent; 
+	}
+    input {
+        border: 1px solid #ccc;
+        -webkit-transition: all .3s;
+        -o-transition: all .3s;
+        -moz-transition: all .3s;
+        transition: all .3s;
+        outline: none;
+        vertical-align: middle;
+    }
+    
+    label {
+        padding: 0 20px;
+    }
+    
+    input:focus {
+        outline: 0;
+    }
+    
+    input[type="number"],
+    input[type="text"] {
+        padding: 5px 10px;
+        border-radius: 4px;
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    }    
+    input[type="number"]:focus,
+    input[type="number"]:hover,
+    input[type="text"]:focus {
+        border-color: #66afe9;
+        -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
+        -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
+        -o-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
+        -ms-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
+    }
+    /*number*/
+    input[type="number"]::-webkit-inner-spin-button {
+        position: relative;
+        width: 8px;
+        display: inline-block;
+        -webkit-transition: all .3s;
+        -o-transition: all .3s;
+        -moz-transition: all .3s;
+        transition: all .3s;
+        -webkit-appearance: none;
+        appearance: none;
+    }
+    
+    input[type="number"]::-webkit-inner-spin-button::before,
+    input[type="number"]::-webkit-inner-spin-button::after {
+        content: "\0020";
+        display: block;
+        position: absolute;
+        width: 0;
+        height: 0;
+        border-left: 4px solid transparent;
+        border-right: 4px solid transparent;
+    }
+    
+    input[type="number"]::-webkit-inner-spin-button::before {
+        top: -1px;
+        border-bottom: 8px solid #66afe9;
+    }
+    
+    input[type="number"]::-webkit-inner-spin-button::after {
+        top: 50%;
+        margin-top: 1px;
+        border-top: 8px solid #66afe9;
+    }
+    
+    input[type="radio"] {
+        -webkit-appearance: none;
+        appearance: none;
+        padding: 3px;
+        border: 3px solid #e6e6e6;
+        border-radius: 50%;
+        display: inline-block;
+        width: 24px;
+        height: 24px;
+        position: relative;
+    }
+    
+    input[type="radio"]:checked {
+        border-color: #66afe9;
+        -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
+        -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
+        -o-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
+        -ms-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
+    }
+    
+    input[type="radio"]:checked::before {
+        content: "\0020";
+        display: block;
+        position: absolute;
+        width: 12px;
+        height: 12px;
+        left: 50%;
+        top: 50%;
+        margin-left: -6px;
+        margin-top: -6px;
+        border-radius: 50%;
+        background-color: #66afe9;
+    }
+    /*开关按钮*/
+    
+    .toggle {
+        -webkit-appearance: none;
+        appearance: none;
+        -webkit-transition: all .3s;
+        -o-transition: all .3s;
+        -moz-transition: all .3s;
+        transition: all .3s;
+        display: inline-block;
+        width: 61px;
+        height: 31px;
+        border: solid 2px #e6e6e6;
+        border-radius: 20px;
+        background-color: #fff;
+        cursor: pointer;
+        position: relative;
+    }
+    
+    .toggle::after {
+        content: "\0020";
+        position: absolute;
+        display: inline-block;
+        width: 27px;
+        height: 27px;
+        border-radius: 50%;
+        background-color: #fff;
+        top: 0px;
+        left: 0px;
+        -webkit-transition: all .3s;
+        -o-transition: all .3s;
+        -moz-transition: all .3s;
+        transition: all .3s;
+        -webkit-box-shadow: 0 2px 7px rgba(0, 0, 0, 0.35), 0 1px 1px rgba(0, 0, 0, 0.15);
+        -o-box-shadow: 0 2px 7px rgba(0, 0, 0, 0.35), 0 1px 1px rgba(0, 0, 0, 0.15);
+        -moz-box-shadow: 0 2px 7px rgba(0, 0, 0, 0.35), 0 1px 1px rgba(0, 0, 0, 0.15);
+        -ms-box-shadow: 0 2px 7px rgba(0, 0, 0, 0.35), 0 1px 1px rgba(0, 0, 0, 0.15);
+        box-shadow: 0 2px 7px rgba(0, 0, 0, 0.35), 0 1px 1px rgba(0, 0, 0, 0.15);
+    }
+    
+    .toggle:checked {
+        background-color: #66afe9;
+        border-color: #66afe9;
+    }
+    
+    .toggle:checked::after {
+        left: 30px;
+    }
+    </style>
+</head>
+
+<body>
+    <input type="text" value="123" placeholder="这里是占位">
+    <input type="number" step="0.1" max="1.0" min="0.0">
+    <label>
+        <input type="radio" name="gender" checked>
+    </label>
+    <label>
+        <input type="radio" name="gender">
+    </label>
+    <input class="toggle" type="checkbox" checked>
+</body>
+
+</html>

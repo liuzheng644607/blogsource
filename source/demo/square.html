@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+	<title>正方形</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+	body{
+		margin: 0;
+		padding: 0;
+	}
+	.container{
+		font-size: 0;
+	}
+	.box{
+		width: 20%;
+		display: inline-block;
+		background-color: rgba(77, 184, 73, 0.6);
+		-webkit-transition:all .3s;
+		-moz-transition:all .3s;
+		-o-transition:all .3s;
+		transition:all .3s;
+	}
+	.box:hover{
+		background-color:rgba(77, 184, 73, 1);
+	}
+	.box:before{
+		content: "";
+		display: block;
+		width: 0;
+		padding-bottom: 100%;
+	}
+	.box:nth-child(2n){
+		background-color: rgba(111, 115, 255, 0.6);
+	}
+	.box:nth-child(2n):hover{
+		background-color: rgba(111, 115, 255, 1);
+	}
+	</style>
+</head>
+<body>
+<div class="container">
+	<div class="box"></div>
+	<div class="box"></div>
+	<div class="box"></div>
+	<div class="box"></div>
+	<div class="box"></div>
+	<div class="box"></div>
+	<div class="box"></div>
+	<div class="box"></div>
+</div>
+</body>
+</html>

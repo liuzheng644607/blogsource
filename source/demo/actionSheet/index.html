@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <title>modal</title>
+    <link rel="stylesheet" href="css/modal.css">
+    <script type="text/javascript" src="js/zepto.min.js"></script>
+    <script type="text/javascript" src="js/modal.js"></script>
+</head>
+
+<body>
+    <button class="btn">actionsheet</button>
+    <script type="text/javascript">
+    var btn = document.querySelector(".btn");
+    btn.onclick = function(e) {
+        actionSheet.actions(actionSheetButtons);
+    };
+
+    var actionSheetButtons = [
+        [
+            {
+                text: '描述',
+                label: true
+            },
+            {
+                text: 'Alert',
+                close: false,
+                onClick: function() {
+                }
+            },
+            {
+                text: 'Nice Red Button ',
+                class: 'red',
+                onClick: function() {
+                }
+            },
+        ],
+        [{
+            text: 'Cancel',
+            bold: true,
+            onClick: function() {
+            }
+        }]
+    ];
+    </script>
+</body>
+
+</html>

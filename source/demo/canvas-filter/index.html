@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+
+<head><meta name="generator" content="Hexo 3.8.0">
+    <title>canvas 滤镜</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+    <style type="text/css">
+    input[type="file"] {
+        /*background: transparent;
+        -webkit-appearance: none;*/
+    }
+    </style>
+</head>
+
+<body>
+    <img id="img" src="1.jpg" alt="川力妹子" title="川妹">
+    <canvas id="canvas"></canvas>
+    <input id="pick-file" type="file">
+    <div class="controlBar">
+        <button id="btn-origin">原图</button>
+        <button id="btn-gray">灰度</button>
+        <button id="btn-invert">反色</button>
+        <button id="btn-blur">模糊</button>
+        <button id="btn-carve">雕刻</button>
+        <button id="btn-cameo">浮雕</button>
+        <button id="btn-mirror">镜面</button>
+    </div>
+    <script>
+    var canvas = document.querySelector('#canvas'),
+        ctx = canvas.getContext('2d');
+    var img = document.querySelector('#img');
+    var btnPickImg = document.querySelector('#pick-file');
+    btnPickImg.addEventListener('change', function(e) {
+        var reader = new FileReader();
+        reader.readAsDataURL(this.files[0]);
+        reader.onload = function(e) {
+            img.src = e.target.result;
+            drawImg();
+        };
+    }, false);
+
+    var btnOrigin  = document.querySelector('#btn-origin');
+    btnOrigin.addEventListener('click', reset, false);
+    // 滤镜操作
+    var btnGray = document.querySelector('#btn-gray');
+    var btnInvert = document.querySelector('#btn-invert');
+    var btnBlur = document.querySelector('#btn-blur');
+    var btnCarve = document.querySelector('#btn-carve');
+    var btnCameo = document.querySelector('#btn-cameo');
+    var btnMirror = document.querySelector('#btn-mirror');
+
+    btnGray.addEventListener('click', gray, false);
+    btnInvert.addEventListener('click', invert, false);
+    btnBlur.addEventListener('click', blur, false);
+    btnCarve.addEventListener('click', carve, false);
+    btnCameo.addEventListener('click', cameo, false);
+    btnMirror.addEventListener('click', mirror, false);
+
+    // 还原
+    var originImageData = null;
+    function reset() {
+        ctx.putImageData(originImageData, 0, 0);
+    }
+    function drawImg() {
+        img.onload = function(e) {
+            canvas.width = this.getBoundingClientRect().width;
+            canvas.height = this.getBoundingClientRect().height;
+            ctx.drawImage(this, 0, 0);
+
+            // 保存原始数据
+            var canvasData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+            var uint8ClampedArrayData = canvasData.data;
+            originImageData = new ImageData(canvas.width, canvas.height);
+            originImageData.data.set(uint8ClampedArrayData);
+        };
+    }
+    drawImg();
+
+    /**
+     * 灰度
+     * @return {[type]} [description]
+     */
+    function gray() {
+        var allPixelInfo = canvas.width * canvas.height * 4;
+        /**
+         * [canvasData 是一个 ImageData 类型的对象.]
+         * 创建一个 ImageData:
+         * example:
+         * var imgData = new ImageData(100, 100);
+         * 返回结果 {width:100, height:100, data: Uint8ClampedArray}
+         * @type {[ImageData]}
+         */
+        var canvasData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+        /**
+         * [uint8ClampedArrayData 它是一个 Uint8ClampedArray对象]
+         * @type {[type]}
+         */
+        var uint8ClampedArrayData = canvasData.data;
+        for (var i = 0; i < allPixelInfo; i += 4) {
+            var r = uint8ClampedArrayData[i];
+            var g = uint8ClampedArrayData[i + 1];
+            var b = uint8ClampedArrayData[i + 2];
+            uint8ClampedArrayData[i] = (r * 0.299) + (g * 0.587) + (b * 0.114);
+            uint8ClampedArrayData[i + 1] = (r * 0.299) + (g * 0.587) + (b * 0.114);
+            uint8ClampedArrayData[i + 2] = (r * 0.299) + (g * 0.587) + (b * 0.114);
+        }
+        ctx.putImageData(canvasData, 0, 0);
+    }
+
+    function invert() {
+        var allPixelInfo = canvas.width * canvas.height * 4;
+        var canvasData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+        var uint8ClampedArrayData = canvasData.data;
+        for (var i = 0; i < allPixelInfo; i += 4) {
+            var r = uint8ClampedArrayData[i];
+            var g = uint8ClampedArrayData[i + 1];
+            var b = uint8ClampedArrayData[i + 2];
+
+            uint8ClampedArrayData[i] = 255 - r;
+            uint8ClampedArrayData[i + 1] = 255 - g;
+            uint8ClampedArrayData[i + 2] = 255 - b;
+        }
+        ctx.putImageData(canvasData, 0, 0);
+    }
+
+    function blur() {
+        var allPixelInfo = canvas.width * canvas.height * 4;
+        var canvasData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+        var uint8ClampedArrayData = canvasData.data;
+        var tempCanvasData = new ImageData(canvas.width, canvas.height);
+        tempCanvasData.data.set(uint8ClampedArrayData);
+        var sumred = 0.0,
+            sumgreen = 0.0,
+            sumblue = 0.0;
+        for (var x = 0; x < tempCanvasData.width; x++) {
+            for (var y = 0; y < tempCanvasData.height; y++) {
+
+                // Index of the pixel in the array
+                var idx = (x + y * tempCanvasData
+                    .width) * 4;
+                for (var subCol = -2; subCol <= 2; subCol++) {
+                    var colOff = subCol + x;
+                    if (colOff < 0 || colOff >= tempCanvasData.width) {
+                        colOff = 0;
+                    }
+                    for (var subRow = -2; subRow <= 2; subRow++) {
+                        var rowOff = subRow + y;
+                        if (rowOff < 0 || rowOff >= tempCanvasData.height) {
+                            rowOff = 0;
+                        }
+                        var idx2 = (colOff + rowOff * tempCanvasData.width) * 4;
+                        var r = tempCanvasData.data[idx2 + 0];
+                        var g = tempCanvasData.data[idx2 + 1];
+                        var b = tempCanvasData.data[idx2 + 2];
+                        sumred += r;
+                        sumgreen += g;
+                        sumblue += b;
+                    }
+                }
+
+                // calculate new RGB value
+                var nr = (sumred / 25.0);
+                var ng = (sumgreen / 25.0);
+                var nb = (sumblue / 25.0);
+
+                // clear previous for next pixel point
+                sumred = 0.0;
+                sumgreen = 0.0;
+                sumblue = 0.0;
+
+                // assign new pixel value
+                canvasData.data[idx + 0] = nr; // Red channel
+                canvasData.data[idx + 1] = ng; // Green channel
+                canvasData.data[idx + 2] = nb; // Blue channel
+                canvasData.data[idx + 3] = 255; // Alpha channel
+            }
+        }
+        ctx.putImageData(canvasData, 0, 0);
+    }
+
+    function carve() {
+        var allPixelInfo = canvas.width * canvas.height * 4;
+        var canvasData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+        var uint8ClampedArrayData = canvasData.data;
+        var tempCanvasData = new ImageData(canvas.width, canvas.height);
+        tempCanvasData.data.set(uint8ClampedArrayData);
+        for (var x = 1; x < tempCanvasData.width - 1; x++) {
+            for (var y = 1; y < tempCanvasData.height - 1; y++) {
+
+                // Index of the pixel in the array
+                var idx = (x + y * tempCanvasData.width) * 4;
+                var bidx = ((x - 1) + y * tempCanvasData.width) * 4;
+                var aidx = ((x + 1) + y * tempCanvasData.width) * 4;
+
+                // calculate new RGB value
+                var nr = tempCanvasData.data[bidx + 0] - tempCanvasData.data[aidx + 0] + 128;
+                var ng = tempCanvasData.data[bidx + 1] - tempCanvasData.data[aidx + 1] + 128;
+                var nb = tempCanvasData.data[bidx + 2] - tempCanvasData.data[aidx + 2] + 128;
+                nr = (nr < 0) ? 0 : ((nr > 255) ? 255 : nr);
+                ng = (ng < 0) ? 0 : ((ng > 255) ? 255 : ng);
+                nb = (nb < 0) ? 0 : ((nb > 255) ? 255 : nb);
+
+                // assign new pixel value
+                canvasData.data[idx + 0] = nr; // Red channel
+                canvasData.data[idx + 1] = ng; // Green channel
+                canvasData.data[idx + 2] = nb; // Blue channel
+                canvasData.data[idx + 3] = 255; // Alpha channel
+            }
+        }
+        ctx.putImageData(canvasData, 0, 0);
+    }
+
+    function cameo() {
+        var allPixelInfo = canvas.width * canvas.height * 4;
+        var canvasData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+        var uint8ClampedArrayData = canvasData.data;
+        var tempCanvasData = new ImageData(canvas.width, canvas.height);
+        tempCanvasData.data.set(uint8ClampedArrayData);
+        for (var x = 1; x < tempCanvasData.width - 1; x++) {
+            for (var y = 1; y < tempCanvasData.height - 1; y++) {
+
+                // Index of the pixel in the array
+                var idx = (x + y * tempCanvasData.width) * 4;
+                var bidx = ((x - 1) + y * tempCanvasData.width) * 4;
+                var aidx = ((x + 1) + y * tempCanvasData.width) * 4;
+
+                // calculate new RGB value
+                var nr = tempCanvasData.data[aidx + 0] - tempCanvasData.data[bidx + 0] + 128;
+                var ng = tempCanvasData.data[aidx + 1] - tempCanvasData.data[bidx + 1] + 128;
+                var nb = tempCanvasData.data[aidx + 2] - tempCanvasData.data[bidx + 2] + 128;
+                nr = (nr < 0) ? 0 : ((nr > 255) ? 255 : nr);
+                ng = (ng < 0) ? 0 : ((ng > 255) ? 255 : ng);
+                nb = (nb < 0) ? 0 : ((nb > 255) ? 255 : nb);
+
+                // assign new pixel value
+                canvasData.data[idx + 0] = nr; // Red channel
+                canvasData.data[idx + 1] = ng; // Green channel
+                canvasData.data[idx + 2] = nb; // Blue channel
+                canvasData.data[idx + 3] = 255; // Alpha channel
+            }
+        }
+        ctx.putImageData(canvasData, 0, 0);
+    }
+
+    function mirror() {
+        var allPixelInfo = canvas.width * canvas.height * 4;
+        var canvasData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+        var uint8ClampedArrayData = canvasData.data;
+        var tempCanvasData = new ImageData(canvas.width, canvas.height);
+        tempCanvasData.data.set(uint8ClampedArrayData);
+        for (var x = 0; x < tempCanvasData.width; x++) {
+            for (var y = 0; y < tempCanvasData.height; y++) {
+                // Index of the pixel in the array
+                var idx = (x + y * tempCanvasData.width) * 4;
+                var midx = (((tempCanvasData.width - 1) - x) + y * tempCanvasData.width) * 4;
+
+                // assign new pixel value
+                canvasData.data[midx + 0] = tempCanvasData.data[idx + 0]; // Red channel
+                canvasData.data[midx + 1] = tempCanvasData.data[idx + 1];; // Green channel
+                canvasData.data[midx + 2] = tempCanvasData.data[idx + 2];; // Blue channel
+                canvasData.data[midx + 3] = 255; // Alpha channel
+            }
+        }
+        ctx.putImageData(canvasData, 0, 0);
+    }
+
+    // 锐化
+    function sharpen() {
+        var allPixelInfo = canvas.width * canvas.height * 4;
+        var canvasData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+        var uint8ClampedArrayData = canvasData.data;
+        var tempCanvasData = new ImageData(canvas.width, canvas.height);
+        tempCanvasData.data.set(uint8ClampedArrayData);
+        // 拉普拉斯模板
+        var laplacian = [-1, -1, -1, -1, 9, -1, -1, -1, -1];
+        for (var x = 0; x < tempCanvasData.width; x++) {
+                for (var y = 0; y < tempCanvasData.height; y++) {
+            }
+        }
+        ctx.putImageData(canvasData, 0, 0);
+    }
+    </script>
+</body>
+
+</html>

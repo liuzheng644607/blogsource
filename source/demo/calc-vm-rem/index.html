@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximun-scale=1.0,user-scalable=no">
+    <title>vw,rem应用</title>
+    <style type="text/css">
+    label span,
+    input {
+        vertical-align: middle;
+    }
+    
+    input[type='range'] {
+        width: 100%;
+    }
+    
+    input[type='range'] {
+        display: inline-block;
+        overflow: hidden;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        padding-right: 2px;
+        padding-left: 1px;
+        height: 43px;
+        outline: none;
+        background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ccc), color-stop(100%, #ccc));
+        background: linear-gradient(to right, #ccc 0%, #ccc 100%);
+        background-position: center;
+        background-size: 99% 2px;
+        background-repeat: no-repeat;
+        -webkit-appearance: none;
+    }
+    
+    input[type='range']::-webkit-slider-thumb {
+        position: relative;
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        background-color: #fff;
+        box-shadow: 0 0 2px rgba(0, 0, 0, 0.3), 0 3px 5px rgba(0, 0, 0, 0.2);
+        cursor: pointer;
+        -webkit-appearance: none;
+        border: 0;
+    }
+    
+    input[type='range']::-webkit-slider-thumb:before {
+        position: absolute;
+        top: 13px;
+        left: -2001px;
+        width: 2000px;
+        height: 2px;
+        background: #444;
+        content: ' ';
+        background: #387ef5;
+    }
+    
+    input[type='range']::-webkit-slider-thumb:after {
+        position: absolute;
+        top: -15px;
+        left: -15px;
+        padding: 30px;
+        content: ' ';
+    }
+    
+    .demo {
+        margin: 5px 0;
+    }
+    
+    #box-container .box {
+        width: 1rem;
+        height: 1rem;
+        background-color: #999;
+        display: inline-block;
+    }
+    
+    body {
+        font-size: 0.14rem;
+    }
+    </style>
+</head>
+
+<body>
+    <label>
+        <span>参照屏幕宽度:</span>
+        <input id="txt-d" type="text" value="640"> px
+    </label>
+    <div class="demo">
+        应设置根元素font-size:<span id="rem"></span> VW
+    </div>
+    <div class="demo">
+        <input id="btn-range" type="range" min="280" max="1920" value="640">
+    </div>
+    <div class="demo" id="box-container">
+        <div class="box">1</div>
+        <div class="box">1</div>
+        <div class="box">1</div>
+        <div class="box">1</div>
+    </div>
+    <script type="text/javascript">
+    // 参照的设计稿的宽度
+    var baseWidth = 640;
+    var rootfontsize = 100 / (baseWidth / 100);
+    var btn_range = document.querySelector('#btn-range');
+    var txt_d = document.querySelector('#txt-d');
+    var rem = document.getElementById('rem');
+    calcFontSize();
+    btn_range.onchange = function(e) {
+        baseWidth = this.value;
+        calcFontSize();
+        txt_d.value = baseWidth;
+    }
+    txt_d.onblur = function() {
+        baseWidth = this.value;
+        calcFontSize();
+        btn_range.value = baseWidth;
+    }
+
+    function calcFontSize() {
+        rem.innerText = rootfontsize = 100 / (baseWidth / 100);
+        document.querySelector('html').style.fontSize = rootfontsize + 'vw';
+    }
+    </script>
+</body>
+
+</html>

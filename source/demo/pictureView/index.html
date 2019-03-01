@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head><meta name="generator" content="Hexo 3.8.0">
+    <title>图片预览</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <link rel="stylesheet" href="css.css">
+    <script src="zepto.js"></script>
+    <script src="PreviewImage.js"></script>
+    <style>
+    html,
+    body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+
+    .box {
+        height: 100%;
+        width: 100%;
+        position: relative;
+        overflow: hidden;
+        background-color: #000;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+    </div>
+    <script>
+    var imgContainer = document.querySelector('.box');
+
+    var preview = new PreviewImage({
+        container: imgContainer,
+        // 加载中图片站位
+        loading: 'http://www.lupaworld.com/data/attachment/portal/201409/26/102446i3hl6563zmb6skpg.gif',
+        current: 10, //默认显示哪一张 索引从0开始
+        duration: 100, // 动画时间 ms
+        showCountBar: true,
+        images: [{
+            src: 'http://cdn.duitang.com/uploads/item/201409/13/20140913141520_Ydidj.jpeg',
+        }, {
+            src: 'http://f7.topit.me/7/27/80/1128273767a5380277l.jpg',
+        }, {
+            src: 'http://p.qq181.com/cms/1304/2013040607430286882.jpg',
+        }, {
+            src: 'http://d.3987.com/tfmnx_1309014/001.jpg',
+        }, {
+            src: 'http://img2.mtime.com/mg/2009/36/9a1d9903-71c6-4654-8b42-673bdad3aaef.jpg',
+        }, {
+            src: 'http://img4.duitang.com/uploads/item/201406/27/20140627004739_nQwxv.jpeg',
+        }]
+    });
+
+    $(document).on('keydown', function(e) {
+        if (e.keyCode === 39) {
+            preview.prev();
+        } else if (e.keyCode === 37) {
+            preview.next();
+        }
+    });
+    </script>
+</body>
+
+</html>

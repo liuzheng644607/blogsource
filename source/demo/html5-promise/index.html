@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+
+<head><meta name="generator" content="Hexo 3.8.0">
+    <title>Promise demo</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <style type="text/css">
+    .imgbox {
+        padding: 10px;
+        border: 1px dashed #ddd;
+        text-align: center;
+        color: green;
+    }
+    
+    .imgbox img {
+        max-width: 100%;
+    }
+    
+    .console p {
+        font-size: 20px;
+        font-weight: bold;
+        color: #f00;
+    }
+    
+    .log {
+        max-height: 200px;
+        border-top: 1px solid #999;
+        overflow: auto;
+    }
+    
+    .log div {
+        border: 1px solid #999;
+        padding: 5px 5px 5px 0;
+        margin-top: -1px;
+    }
+    
+    .log div span {
+        padding: 3px 2px;
+        margin-right: 5px;
+        color: #452ded
+    }
+    .waring{
+    	color: red;
+    }
+    code{
+    	background-color: #FFDAD9;
+    	padding: 2px;
+    	color: #aa0d91;
+    	border-radius: 3px;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="imgbox">
+    </div>
+    <div class="input-bar">
+        <input id="input-txt" type="text" value="http://img1.qunarzz.com/vc/ce/eb/ed/9f4e5d163d90517d0c1e894741.jpg_720x288x92.jpg">
+        <button id="btn_load">加载图片</button>
+    </div>
+    <p class="waring">请使用chrome打开此页面,并在启动浏览器时 加上参数 <code>--args --disable-web-security</code><img style="vertical-align:middle" src="1.png"></p>
+    <div class="console">
+        <p>log:</p>
+        <div class="log">
+        </div>
+    </div>
+    <script type="text/javascript">
+    (function() {
+        'use strict';
+        var log_el = document.querySelector('.log');
+        var count = 0;
+
+        function log() {
+            if (arguments.length === 0) return;
+            var div = '';
+            div = '<div><span>' + count++ + '</span>' + [].join.call(arguments, '&nbsp;&nbsp;&nbsp;&nbsp;') + '\n\r</div>';
+            log_el.insertAdjacentHTML('afterBegin', div);
+        }
+
+        function loadImg(url) {
+            if (!url) return;
+            var xhr = new XMLHttpRequest();
+            xhr.responseType = 'blob';
+            xhr.open('GET', url);
+            xhr.send();
+            return new Promise(function(resolve, reject) {
+                xhr.onload = function() {
+                    if (xhr.status === 200) {
+                        resolve(xhr.response)
+                    } else {
+                        reject(Error('failed;errcode:' + xhr.statusText))
+                    }
+                }
+                xhr.onerror = function() {
+                    reject(Error('network error!'));
+                }
+                xhr.onprogress = function(e) {
+                	if (e.loaded===e.total) {
+                		log('<em style="color:green">图片加载完毕!  100%<em>')
+                	}else{
+                		log('loaded:'+(e.loaded/e.total*100).toFixed(1)+'%');
+                	}
+                }
+            });
+        }
+
+        var imgbox = document.querySelector('.imgbox');
+
+        function changeImg(url) {
+
+            if (!url) {
+                log('请输入图片网址');
+                return;
+            }
+            loadImg(url).then(function(response) {
+                var img = new Image();
+                window.URL = window.URL || window.webkitURL || {};
+                var src = window.URL.createObjectURL(response);
+                img.src = src;
+                imgbox.innerHTML = '';
+                imgbox.appendChild(img);
+            }, function(error) {
+                log(error);
+            });
+        }
+        var input_text = document.querySelector('#input-txt');
+        document.getElementById('btn_load').onclick = function() {
+            count = 0;
+            log_el.innerHTML = '';
+            imgbox.innerHTML = '请稍等';
+            changeImg(input_text.value);
+        }
+        document.getElementById('btn_load').onclick();
+    })()
+    </script>
+</body>
+
+</html>
