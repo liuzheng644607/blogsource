@@ -578,7 +578,7 @@ gitment:
   cleanly: false # Hide 'Powered by ...' on footer, and more
   language: # Force language, or auto switch by theme
   github_user: liuzheng644607 # MUST HAVE, Your Github Username
-  github_repo: blog-comments # MUST HAVE, The name of the repo you use to store Gitment comments
+  github_repo: blogsource # MUST HAVE, The name of the repo you use to store Gitment comments
   client_id: 80c551d92fa30ec2922d # MUST HAVE, Github client id for the Gitment
   client_secret: 5b5a14006758964a4cad462d6a88a64e1ff969f6 # EITHER this or proxy_gateway, Github access secret token for the Gitment
   proxy_gateway: # Address of api proxy, See: https://github.com/aimingoo/intersect
@@ -590,7 +590,7 @@ gitment:
 gitalk:
   enable: true
   github_id: liuzheng644607 # Github repo owner
-  repo: blog-comments # Repository name to store issues.
+  repo: blogsource # Repository name to store issues.
   client_id: 80c551d92fa30ec2922d # Github Application Client ID
   client_secret: 5b5a14006758964a4cad462d6a88a64e1ff969f6 # Github Application Client Secret
   admin_user: liuzheng644607 # GitHub repo owner and collaborators, only these guys can initialize github issues
