@@ -69,5 +69,5 @@ theme: next
 ## Docs: http://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: https://github.com/lyaner/lyaner.github.com.git
+  repo: https://github.com/lyaner/lyaner.github.io.git
   branch: master
