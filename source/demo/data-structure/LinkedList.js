@@ -7,6 +7,8 @@ function List() {
     this.head = new Node("head");
 }
 
+List.prototype.add = function() {}
+
 List.prototype.find = function(item) {
     var currNode = this.head;
     while (currNode.element !== item) {
