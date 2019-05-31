@@ -89,6 +89,11 @@ request({
 
 体验版二维码链接： [https://open.weixin.qq.com/sns/getexpappinfo?appid=xxx&path=pages%2Fhome.html#wechat-redirect](https://open.weixin.qq.com/sns/getexpappinfo?appid=wx605e411ab08c87f3&path=pages%2Fhome.html#wechat-redirect "https://open.weixin.qq.com/sns/getexpappinfo?appid=wx605e411ab08c87f3&path=pages%2Fhome.html#wechat-redirect")
 
+⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️注意
+> 预览接口 和 上传接口的 http method 都是 post，下面表格列的参数 是需要附加到url上面的query参数。
+post的 body数据就是打包好的.wx文件，示例代码 见文章 [微信小程序上传/预览代码分析](https://www.jianshu.com/p/50dec765939e) 末尾。
+
+
 ## 预览接口
 | 接口描述 | 预览小程序 |
 | :------| ------ |
@@ -97,7 +102,7 @@ request({
 | 请求方法 | POST |
 |入参| 参数见下面 |
 |返回| 返回结果见下面 |
-入参：
+#### query参数：
 ```
 {
   _r: '0.8530581592723374', // 随机数
@@ -113,6 +118,7 @@ request({
   clientversion: '1.01.171018'
 }
 ```
+
 返回结果
 ```
 {
@@ -135,7 +141,8 @@ request({
 | 请求方法 | POST |
 |入参| 参数见下面 |
 |返回| 返回结果见下面 |
-入参
+
+#### query 入参
 ```
 {
   _r: '0.8530581592723374', // 随机数
@@ -153,7 +160,7 @@ request({
   clientversion: '1.01.171018'
 }
 ```
-返回结果
+#### 返回结果
 ```
 {
 	"baseresponse": {
