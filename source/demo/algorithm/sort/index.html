@@ -5,8 +5,55 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>排序算法</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+    .container {
+        padding: 0 200px;
+    }
+    .left, .right, .main {
+        float: left;
+        width: 200px;
+        height: 600px;
+    }
+    .main {
+        width: 100%;
+        background-color: bisque;
+    }
+    .left {
+        background-color: gray;
+        margin-left: -100%;
+        position: relative;
+        right: 200px;
+    }
+    .right {
+        background-color: blueviolet;
+        margin-left: -200px;
+        position: relative;
+        left: 200px;
+    }
+    .footer {
+        clear: both;
+    }
+    </style>
     <script src="./main.js"></script>
 </head>
 <body>
+    <div class="container">
+        <div class="main">main</div>
+        <div class="left">left</div>
+        <div class="right">right</div>
+    </div>
+    <div class="footer">
+        footer
+    </div>
+    <script>
+    var container = document.querySelector('.container');
+    var html = '';
+    html += `
+    <h2>冒泡排序</h2>
+    <pre>${SortAlgorithm.bubbleSort.toString()}</pre>
+    `;
+
+    // container.innerHTML = html;
+    </script>
 </body>
 </html>

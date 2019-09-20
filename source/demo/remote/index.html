@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./reset.css">
+    <link rel="stylesheet" href="./index.css">
+    <script src="./peerjs.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1 class="cur-id">本机识别码：<strong id="js-peer-id">loading...</strong></h1>
+        <div class="danshed-line"></div>
+        <div class="ctrl-remote">
+            <input spellcheck="false" id="js-input-id" type="text" placeholder="请输入对方识别码"/>
+            <button id="js-btn-connect" class="btn-viewscreen">查看对方屏幕</button>
+            <button id="js-btn-video">视频通话</button>
+        </div>
+        <div class="video-container">
+            <div id="js-remote-video" class="remote-video"></div>
+            <div id="js-self-video" class="self-video"></div>
+        </div>
+    </div>
+    <script src="./index.js"></script>
+</body>
+</html>
