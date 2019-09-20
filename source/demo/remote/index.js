@@ -37,8 +37,9 @@ function closeWindow() {
 }
 
 const peer = new Peer(lastPeerId, {
-  host: "peer.lyan.me",
-  port: 9000,
+  // host: "peer.lyan.me",
+  // secure: false,
+  // port: 9000,
   debug: 3
 });
 
@@ -52,10 +53,14 @@ peer.on("call", mediaConnection => {
   const type = mediaConnection.metadata.type;
   switch (type) {
     case CALL_TYPE.shareScreen:
-      shareScreen(mediaConnection);
+      if (confirm(`${mediaConnection.peer}请求您分享屏幕`)) {
+        shareScreen(mediaConnection);
+      }
       break;
     case CALL_TYPE.video:
-      shareVideo(mediaConnection);
+      if (confirm(`${mediaConnection.peer}想与您视频通话`)) {
+        shareVideo(mediaConnection);
+      }
       break;
   }
 });
@@ -65,7 +70,13 @@ peer.on("disconnected", e => {
 });
 
 peer.on("error", e => {
-  alert(e);
+  const message = e.message;
+  if (/is taken/.test(message)) {
+    localStorage.setItem(localPeerKey, '');
+    window.location.reload();
+  } else {
+    alert(e);
+  }
   closeWindow();
 });
 
@@ -101,7 +112,7 @@ function videoConnect(peerId) {
 
 function callRemote(peerId) {
   const canvas = document.createElement("canvas");
-  const stream = canvas.captureStream(1);
+  const stream = canvas.captureStream(~~(Math.random() * 100));
   const mediaConnection = peer.call(peerId, stream, {
     metadata: {
       type: CALL_TYPE.shareScreen
