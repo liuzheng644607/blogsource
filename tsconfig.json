@@ -1,0 +1,21 @@
+{
+    "compileOnSave": true,
+    "compilerOptions": {
+        "experimentalDecorators": true,
+        "module": "umd",
+        "target": "es6",
+        "emitDecoratorMetadata": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "jsx": "react",
+        "strict": true,
+        "skipLibCheck": true,
+        "sourceMap": true,
+        "skipDefaultLibCheck": true,
+        "importHelpers": true,
+        "lib": ["es5", "dom", "es2017.object"],
+        "noImplicitAny": true
+    },
+    "exclude": ["node_modules"]
+  }
+  

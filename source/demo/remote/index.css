@@ -1,10 +1,10 @@
 html, body {
   background-color: #f6f6f6;
-  font-family: arial,sans-serif;
+  font-family: -apple-system, BlinkSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Helevetica, Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", "Source Han Sans CN", sans-serif;
 }
 
 .danshed-line {
-  margin-bottom: 22.5px;
+  margin-top: 40px;
   background-image: linear-gradient(
     to right,
     #ccc 0%,
@@ -16,61 +16,26 @@ html, body {
   height: 1px; /* no */
 }
 
-.container {
-  margin: 100px auto 0 auto;
-  width: 600px;
-}
-
-.cur-id {
-  text-align: center;
-  font-size: 32px;
-  color: #41aaa8;
-  margin-bottom: 50px;
-}
-
-input {
-  border: 1px solid #41aaa8;
-  padding: 10px;
-  flex: 1;
-  border-right: none;
-  color: #41aaa8;
-}
-
-input::-webkit-input-placeholder {
-  color: #dcdcdc;
-}
-
-
-button {
-  padding: 0 40px;
-  border: 1px solid #41aaa8;
-  border-left: none;
-  background-color: #41aaa8;
-  color: #fff;
-}
-
-.btn-viewscreen {
-  margin-right: 5px;
-}
-
-
 .ctrl-remote {
   display: flex;
+  margin-top: 40px;
 }
+
 
 .video-container {
   height: 400px;
-  /* background-color: #fff; */
   margin-top: 20px;
   display: flex;
 }
+.video-container video {
+  width: 100%;
+}
 
 .remote-video {
-  width: 450px;
-  height: 100%;
+  width: 70%;
+  padding-right: 10px;
 }
 
 .self-video {
-  width: 150px;
-  height: 150px;
+  width: 30%;
 }

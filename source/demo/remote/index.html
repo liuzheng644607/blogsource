@@ -1,28 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>视频会议</title>
-    <link rel="stylesheet" href="./reset.css">
-    <link rel="stylesheet" href="./index.css">
-    <script src="./peerjs.min.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>视频会议</title>
+  <link href="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="./index.css">
 </head>
+
 <body>
-    <div class="container">
-        <h1 class="cur-id">本机识别码：<strong id="js-peer-id">loading...</strong></h1>
-        <div class="danshed-line"></div>
-        <div class="ctrl-remote">
-            <input spellcheck="false" id="js-input-id" type="text" placeholder="请输入对方识别码"/>
-            <button id="js-btn-connect" class="btn-viewscreen">查看对方屏幕</button>
-            <button id="js-btn-video">视频通话</button>
+  <div class="container-fluid" style="margin-top: 50px">
+      <div class="row">
+        <div class="col">
+            <h3 class="text-info text-center">本机识别码：<strong id="js-peer-id">loading...</strong></h1>
+            <div class="danshed-line"></div>
+            <div class="ctrl-remote">
+              <input class="form-control" type="text"  spellcheck="false" id="js-input-id" type="text" placeholder="请输入对方识别码" />
+            </div>
+            <div class="ctrl-remote btn-group">
+              <button id="js-btn-connect" type="button" class="btn btn-outline-primary">
+                <span>屏幕分享</span>
+              </button>
+              <button id="js-btn-video"  type="button" class="btn btn-outline-primary">视频通话</button>
+            </div>
+            <div class="video-container">
+              <div id="js-remote-video" class="remote-video"></div>
+              <div id="js-self-video" class="self-video"></div>
+            </div>
         </div>
-        <div class="video-container">
-            <div id="js-remote-video" class="remote-video"></div>
-            <div id="js-self-video" class="self-video"></div>
-        </div>
-    </div>
-    <script src="./index.js"></script>
+      </div>
+      <div id="js-shared-screen-tips" class="fixed-bottom" style="display: none;">
+          <div class="alert alert-success" role="alert">
+              <div class="d-flex flex-row bd-highlight align-items-center">
+                  对方正在共享屏幕，
+                  <button type="button" id="js-view-shared-screen" class="btn btn-outline-primary">点击查看</button>
+              </div>
+          </div>
+      </div>
+  </div>
+  <script src="./peerjs.min.js"></script>
+  <script src="./device.js"></script>
+  <script src="./index.js"></script>
 </body>
 </html>
