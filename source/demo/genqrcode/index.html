@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>二维码生成工具</title>
+    <style>
+    .qrcode-container img {
+      height: 100%;
+      width: 100%;
+    }
+    </style>
+    <link href="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+          <div class="input-group mb-3 mt-4">
+            <input type="text" class="form-control" id="js-input-qrcode" placeholder="请输入二维码内容" aria-label="请输入二维码内容" aria-describedby="button-addon2">
+            <div class="input-group-append">
+              <button class="btn btn-outline-primary" id="js-btn-gen" type="button" id="button-addon2">生成二维码</button>
+            </div>
+          </div>
+          <div class="card" style="width: 18rem; min-height: 18rem; margin: 0 auto">
+            <div class="card-body">
+              <div class="qrcode-container"></div>
+            </div>
+            <button id="js-btn-download" type="button" class="btn btn-link">下载</button>
+          </div>
+      </div>
+    </div>
+  </div>
+  <script src="./qrcode.min.js"></script>
+  <script>
+    var inputEl = document.querySelector('#js-input-qrcode');
+    var btnEl = document.querySelector('#js-btn-gen');
+    var qrContainer = document.querySelector('.qrcode-container');
+    var btnDownload = document.querySelector('#js-btn-download');
+    function genQrcode() {
+      qrContainer.innerHTML = '';
+      var value = inputEl.value;
+      new QRCode(qrContainer, value);
+      
+    }
+
+    btnEl.addEventListener('click', function() {
+      genQrcode();
+    });
+
+    inputEl.addEventListener('keydown', function(e) {
+      // debugger
+      if (e.keyCode === 13) {
+        genQrcode();
+      }
+    });
+
+    btnDownload.addEventListener('click', function() {
+      var img = qrContainer.querySelector('img');
+      if (!img) {
+        return;
+      }
+
+      var src = img.src;
+      if (!src) {
+        return;
+      }
+      var a = document.createElement('a');
+      a.download = 'qrcode';
+      a.href = src;
+      a.click();
+    })
+  </script>
+</body>
+</html>
