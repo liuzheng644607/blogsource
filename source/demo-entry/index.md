@@ -5,6 +5,8 @@ date: 2019-03-01 23:01:23
 tags:
 ---
 <ol>
+    <li><a target="_blank" href="https://draw.lyan.me/chat-room">仿微信UI聊天室</a></li>
+    <li><a target="_blank" href="https://draw.lyan.me/gobang">canvas画的五子棋demo</a></li>
     <li><a target="_blank" href="/demo/remote/">基于webRTC的屏幕分享+视频通话</a></li>
     <li><a target="_blank" href="/demo/genqrcode/">二维码生成工具</a></li>
     <li><a target="_blank" href="/demo/chatroom.html">websocket实现的聊天室</a></li>
