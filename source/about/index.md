@@ -5,6 +5,8 @@ layout: page
 # tags:
 ---
 
+<button id="btn-print" class="btn-print">打印</button>
+
 # 刘燕
 ---
 * 性别：男&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;年龄：28 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;联系电话：18200397969 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;邮箱： liu-yaner@foxmail.com
@@ -44,7 +46,7 @@ layout: page
 * 开发内部数据统计分析系统（后端代码基本上用Node，当然包括了多种技术，比如redis、kafka、zookeeper、web soket、bash、mysql、elastic search等），该系统是基于前端埋点的数据统计分析系统，由多个子系统构成，每个系统都有参与开发与设计。我主要开发了用于离线分析的定时任务模块(基于node-schedule，主进程管理任务，子进程跑任务)；以及前端UI展现（包括用户端与管理端）。
 * 自定义数据报表系统。该系统可以让用户指定数据源（DB、http interface等），通过一系列的配置生成数据报表。
 * 拉新助手app，使用公司内部出品的hybrid框架对拉新助手进行了重构。
-
+---
 ### 其它信息
 * <i class="fa fa-fw fa-github"></i>GitHub&nbsp;: https://github.com/liuzheng644607
 * <i class="fa fa-fw fa-globe"></i>Blog&nbsp;&nbsp;&nbsp;&nbsp;: https://www.lyan.me/demo-entry
@@ -52,25 +54,21 @@ layout: page
 
 <img src="/assets/myqrcode.png" style="margin: 30px auto 0 auto" />
 
-<div class=""><span class="mask-text">from: https://www.lyan.me</span></div>
+<div id="mask-text" class="mask-text">from: https://www.lyan.me</div>
 
-<!-- <script>
-  var btn = document.querySelector('.print-page');
-  btn && btn.onclick = function() {
-    if (typeof window.print === 'function') {
-      window.print();
-    } else {
-      alert('windows请使用 ctrl + p，mac请使用 command+p 打印')
-    }
-  }
-</script> -->
 <style>
     .mask-text {
-      float: right;
-      line-height: 1;
       font-size: 12px;
       margin-top: 24px;
       opacity: 0;
+      width: 100%;
+      text-align: center;
+    }
+    .btn-print {
+      float: right;
+      line-height: 1;
+      font-size: 12px;
+      margin-top: 16px;
     }
     .container .main-inner {
       margin-top: 0;
@@ -78,6 +76,9 @@ layout: page
     @media print {
       .container .main-inner {
         margin-top: 0;
+      }
+      .btn-print {
+        display: none;
       }
       .mask-text {
         opacity: 1;
@@ -99,3 +100,32 @@ layout: page
       border-bottom: 0
     }
 </style>
+
+<script>
+(function() {
+  function genMask() {
+    var maskText = document.getElementById('mask-text');
+    if (maskText) {
+      maskText.innerText = 'from: https://www.lyan.me 日期:' + new Date();
+    }
+  }
+  function bindPrint() {
+    var btn = document.getElementById('btn-print');
+    if (!btn) return;
+    btn.onclick = function() {
+      if (typeof window.print === 'function') {
+        window.print();
+      } else {
+        alert('windows请使用 ctrl + p，mac请使用 command+p 打印')
+      }
+    }
+  }
+  genMask();
+  bindPrint();
+})();
+
+
+
+
+
+</script>
