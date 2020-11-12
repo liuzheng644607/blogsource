@@ -4,7 +4,7 @@ layout: page
 # date: 2019-03-03 15:38:27
 # tags:
 ---
-<!-- <div class=""><button class="print-page">打印</button></div> -->
+
 # 刘燕
 ---
 * 性别：男&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;年龄：28 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;联系电话：18200397969 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;邮箱： liu-yaner@foxmail.com
@@ -52,6 +52,8 @@ layout: page
 
 <img src="/assets/myqrcode.png" style="margin: 30px auto 0 auto" />
 
+<div class=""><span class="mask-text">from: https://www.lyan.me</span></div>
+
 <!-- <script>
   var btn = document.querySelector('.print-page');
   btn && btn.onclick = function() {
@@ -63,10 +65,12 @@ layout: page
   }
 </script> -->
 <style>
-    .print-page {
+    .mask-text {
       float: right;
       line-height: 1;
       font-size: 12px;
+      margin-top: 24px;
+      opacity: 0;
     }
     .container .main-inner {
       margin-top: 0;
@@ -74,6 +78,9 @@ layout: page
     @media print {
       .container .main-inner {
         margin-top: 0;
+      }
+      .mask-text {
+        opacity: 1;
       }
       .header, .comments, .footer, .gt-container {
         display: none;
