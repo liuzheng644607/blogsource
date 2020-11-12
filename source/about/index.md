@@ -73,6 +73,11 @@ layout: page
     .container .main-inner {
       margin-top: 0;
     }
+
+    @page {
+      /* size: 210mm 290mm​; */
+    }
+
     @media print {
       .container .main-inner {
         margin-top: 0;
@@ -83,8 +88,14 @@ layout: page
       .mask-text {
         opacity: 1;
       }
+      h1 {
+        margin-top: 0;
+      }
       .header, .comments, .footer, .gt-container {
         display: none;
+      }
+      aside {
+        opacity: 0;
       }
       .comments {
         margin: 0;
