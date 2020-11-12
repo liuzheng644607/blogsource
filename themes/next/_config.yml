@@ -149,7 +149,7 @@ menu:
   #sitemap: /sitemap.xml || sitemap
   # commonweal: /404/ || heartbeat
   demo: /demo-entry || th
-  about: /about/ || user
+  # about: /about/ || user
 
 # Enable/Disable menu icons / item badges.
 menu_settings:
