@@ -50,6 +50,8 @@ layout: page
 * <i class="fa fa-fw fa-globe"></i>Blog&nbsp;&nbsp;&nbsp;&nbsp;: https://www.lyan.me/demo-entry
 * <i class="fa fa-fw fa-globe"></i>简 书&nbsp;&nbsp;&nbsp;: http://www.jianshu.com/u/4d71fefa7a45
 
+<img src="/assets/myqrcode.png" style="margin: 30px auto 0 auto" />
+
 <!-- <script>
   var btn = document.querySelector('.print-page');
   btn && btn.onclick = function() {
