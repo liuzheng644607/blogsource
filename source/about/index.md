@@ -54,7 +54,7 @@ layout: page
 
 <img src="/assets/myqrcode.png" style="margin: 30px auto 0 auto" />
 
-<div id="mask-text" class="mask-text">from: https://www.lyan.me</div>
+<div id="mask-text" class="mask-text">From: https://www.lyan.me</div>
 
 <style>
     .mask-text {
@@ -116,9 +116,16 @@ layout: page
 (function() {
   function genMask() {
     var maskText = document.getElementById('mask-text');
-    if (maskText) {
-      maskText.innerText = 'from: https://www.lyan.me 日期:' + new Date();
+    var fn = function() {
+      if (maskText) {
+        maskText.innerText = 'From: ' + location.href + ' 日期:' + new Date();
+      }
+
+      setTimeout(fn, 3000);
     }
+
+    fn();
+    
   }
   function bindPrint() {
     var btn = document.getElementById('btn-print');
