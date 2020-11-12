@@ -1,7 +1,7 @@
 ---
 layout: post
 title: nvm安装多版本node
-date: 2020-08-12 15:25:57
+date: 2018-06-12 15:25:57
 tags:
 ---
 

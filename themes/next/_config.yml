@@ -45,10 +45,10 @@ cache:
 # For example, you put your favicons into `hexo-site/source/images` directory.
 # Then need to rename & redefine them on any other names, otherwise icons from Next will rewrite your custom icons in Hexo.
 favicon:
-  small: /favicon.png
-  medium: /favicon.png
-  apple_touch_icon: /favicon.png
-  safari_pinned_tab: /favicon.png
+  small: assets/favicon.png
+  medium: assets/favicon.png
+  apple_touch_icon: assets/favicon.png
+  safari_pinned_tab: assets/favicon.png
   #android_manifest: /images/manifest.json
   #ms_browserconfig: /images/browserconfig.xml
 
@@ -142,7 +142,6 @@ exturl: false
 # External url should start with http:// or https://
 menu:
   home: / || home
-  #about: /about/ || user
   tags: /tags/ || tags
   categories: /categories/ || th
   archives: /archives/ || archive
@@ -150,6 +149,7 @@ menu:
   #sitemap: /sitemap.xml || sitemap
   # commonweal: /404/ || heartbeat
   demo: /demo-entry || th
+  about: /about/ || user
 
 # Enable/Disable menu icons / item badges.
 menu_settings:
@@ -218,7 +218,7 @@ avatar:
   # In theme directory (source/images): /images/avatar.gif
   # In site directory (source/uploads): /uploads/avatar.gif
   # You can also use other linking images.
-  url: https://avatars2.githubusercontent.com/u/8045477
+  url: assets/avatar.png
   # If true, the avatar would be dispalyed in circle.
   rounded: true
   # The value of opacity should be choose from 0 to 1 to set the opacity of the avatar.
