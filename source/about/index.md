@@ -4,7 +4,7 @@ layout: page
 # date: 2019-03-03 15:38:27
 # tags:
 ---
-
+<!-- <div class=""><button class="print-page">打印</button></div> -->
 # 刘燕
 ---
 * 性别：男&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;年龄：28 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;联系电话：18200397969 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;邮箱： liu-yaner@foxmail.com
@@ -49,12 +49,28 @@ layout: page
 * <i class="fa fa-fw fa-github"></i>GitHub&nbsp;: https://github.com/liuzheng644607
 * <i class="fa fa-fw fa-globe"></i>Blog&nbsp;&nbsp;&nbsp;&nbsp;: https://www.lyan.me/demo-entry
 * <i class="fa fa-fw fa-globe"></i>简 书&nbsp;&nbsp;&nbsp;: http://www.jianshu.com/u/4d71fefa7a45
-<script>
-</script>
+
+<!-- <script>
+  var btn = document.querySelector('.print-page');
+  btn && btn.onclick = function() {
+    if (typeof window.print === 'function') {
+      window.print();
+    } else {
+      alert('windows请使用 ctrl + p，mac请使用 command+p 打印')
+    }
+  }
+</script> -->
 <style>
-    
+    .print-page {
+      float: right;
+      line-height: 1;
+      font-size: 12px;
+    }
+    .container .main-inner {
+      margin-top: 0;
+    }
     @media print {
-      .main-inner {
+      .container .main-inner {
         margin-top: 0;
       }
       .header, .comments, .footer, .gt-container {
