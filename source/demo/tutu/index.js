@@ -52,7 +52,7 @@
         var h = res.hour;
         var m = res.m;
         var s = res.s;
-        djs.innerHTML = "距离图图高考还有：" + day +  "日" + h + "时" + m + "分" + s + "秒";
+        djs.innerHTML = "距离刘严谨小朋友高考还有：" + day +  "日" + h + "时" + m + "分" + s + "秒";
         setTimeout(innerLoop, 1000);
       }
       innerLoop();
@@ -69,7 +69,7 @@
         var h = -res.hour;
         var m = -res.m;
         var s = -res.s;
-        jsBornDay.innerHTML = "图图出生已经：" + day +  "日" + h + "时" + m + "分" + s + "秒";
+        jsBornDay.innerHTML = "刘严谨小朋友出生已经：" + day +  "日" + h + "时" + m + "分" + s + "秒";
         setTimeout(innerLoop, 1000);
       }
       innerLoop();
