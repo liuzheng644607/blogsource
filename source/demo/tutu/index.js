@@ -63,12 +63,12 @@
       function innerLoop() {
         var time = that.currentTime;
         var future = new Date(2021, 01, 16, 16, 34, 0);
-        var p = (future - time) / 1000;
+        var p = -(future - time) / 1000;
         var res = subDate(p);
-        var day = -res.day;
-        var h = -res.hour;
-        var m = -res.m;
-        var s = -res.s;
+        var day = res.day;
+        var h = res.hour;
+        var m = res.m;
+        var s = res.s;
         jsBornDay.innerHTML = "刘严谨小朋友出生已经：" + day +  "日" + h + "时" + m + "分" + s + "秒";
         setTimeout(innerLoop, 1000);
       }
