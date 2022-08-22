@@ -9,8 +9,8 @@ layout: page
 
 # 刘燕
 ---
-* 性别：男&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;年龄：28 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;联系电话：18200397969 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;邮箱： liu-yaner@foxmail.com
-* 目标职位：前端开发工程师
+* 性别：男&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;年龄：<span id="my-age"></span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;联系电话：18200397969 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;邮箱： liu-yaner@foxmail.com
+* 目标职位：前端
 
 ### 教育信息
 | 时间 |  学校  | 专业 | 学历 |
@@ -20,20 +20,25 @@ layout: page
 ### 主要技能
 * 主要技术栈：react/typescript/nodejs
 * 熟悉 javascript/typescript，并有使用typescript 开发⼤型项⽬经验
-* 熟练使⽤react/less/react-router/mobx等技术栈开发项⽬
-* 熟练使⽤webpack，postcss等⼯具搭建项⽬脚⼿手架
-* 熟练使⽤nodejs，使⽤koa框架开发node应⽤
-* 了解RPC调用，有使⽤thrift 经验; 熟悉常⽤的shell命令
+* 熟练使⽤react/webpack/typescript/node等技术栈开发项⽬
 * 有electron项目开发经验
 * 有react-native开发经验
+* 有低代码平台开发经验
 
 ### 工作经历
 | 期间 |  公司  | 职位 | 
 | :---- |  :----  | :---- |
-| 2017.08 ~ 至今 |  美团  | 前端开发工程师 |
-| 2015.07~2017.07 |  去哪儿网  | 前端开发工程师 |
+| 2021.06 ~ 今      |  树根互联 | 高级前端开发工程师
+| 2017.08 ~ 2021.06 |  美团  | 高级前端开发工程师 |
+| 2015.07 ~ 2017.07 |  去哪儿网  | 前端开发工程师 |
 
-##### 美团（2017.08 ~ 至今）
+##### 树根互联（2021.06 至今）
+* 负责根云平台低代码平台开发
+  - 低代码编辑器核心设计开发，负责低代码产品包括应用搭建（aPaaS）、集成流（iPaaS）的开发设计，参与了整个低代码平台从设计态、运行时等核心环节，整个平台使用ts/react/node/webpack 技术栈。
+* 主导PC组件库、移动端（h5）组件库开发，服务平台多个项目。
+* 负责前端研发流程、CI CD等工作，负责多个前端公共lib开发（后端接口定义转ts类型定义、多主题打包工具等）
+
+##### 美团（2017.08 ~ 2021.06)
 * 负责餐饮生态开通支付的UI SDK开发，多个项目接入，使用webpack+typescript+react+mobx 搭建的脚手架。
 * 负责收银软件管理端（PC管家、管家App）开发与维护，需求评审排期等，主要技术栈react、typescript、node；前后端分离，node通过thrift调用后端接口。
 * 开发移动端react/react-native UI组件库，核心开发之一。
@@ -116,9 +121,15 @@ layout: page
 (function() {
   function genMask() {
     var maskText = document.getElementById('mask-text');
+    var myAge = document.getElementById('my-age');
     var fn = function() {
       if (maskText) {
+        
         maskText.innerText = 'From: ' + location.href + ' 日期:' + new Date();
+      }
+
+      if (myAge) {
+        myAge.innerText = new Date().getFullYear() - 1992;
       }
 
       setTimeout(fn, 3000);
