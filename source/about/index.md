@@ -18,11 +18,8 @@ layout: page
 | 2011.09~2015.06 |  西华大学  | 电⼦子商务 | 全日制本科 |
 
 ### 主要技能
-* 主要技术栈：react/typescript/nodejs
-* 熟悉 javascript/typescript，并有使用typescript 开发⼤型项⽬经验
-* 熟练使⽤react/webpack/typescript/node等技术栈开发项⽬
-* 有electron项目开发经验
-* 有react-native开发经验
+* 主要技术栈：react/typescript/nodejs；熟悉 react/webpack/typescript/node等技术，并使用相关技术栈开发⼤型项⽬经验
+* 有electron、react-native项目开发经验
 * 有低代码平台开发经验
 
 ### 工作经历
@@ -33,7 +30,7 @@ layout: page
 | 2015.07 ~ 2017.07 |  去哪儿网  | 前端开发工程师 |
 
 ##### 树根互联（2021.06 至今）
-* 负责根云平台低代码平台开发
+* 负责树根代码平台
   - 低代码编辑器核心设计开发，负责低代码产品包括应用搭建（aPaaS）、集成流（iPaaS）的开发设计，参与了整个低代码平台从设计态、运行时等核心环节，整个平台使用ts/react/node/webpack 技术栈。
 * 主导PC组件库、移动端（h5）组件库开发，服务平台多个项目。
 * 负责前端研发流程、CI CD等工作，负责多个前端公共lib开发（后端接口定义转ts类型定义、多主题打包工具等）
@@ -43,14 +40,12 @@ layout: page
 * 负责收银软件管理端（PC管家、管家App）开发与维护，需求评审排期等，主要技术栈react、typescript、node；前后端分离，node通过thrift调用后端接口。
 * 开发移动端react/react-native UI组件库，核心开发之一。
 * 使用electron技术开发windows版收银机，设计打包、静默更新等。
-* 开发下一代收银系统PC/h5 端。
+* 开发下一代餐饮收银系统，主要负责财务模块。
 * 开发基于云函数的灰度代理服务。
 
 ##### 去哪儿（2015.07~2017.07）
 * 负责去哪儿网客户端民宿频道开发、维护，包括app端与touch端。app端使用了react-native技术，混杂有hybrid页面，以前的客户端民宿频道完全是hybrid的，后来全部以react-native重构。
-* 开发内部数据统计分析系统（后端代码基本上用Node，当然包括了多种技术，比如redis、kafka、zookeeper、web soket、bash、mysql、elastic search等），该系统是基于前端埋点的数据统计分析系统，由多个子系统构成，每个系统都有参与开发与设计。我主要开发了用于离线分析的定时任务模块(基于node-schedule，主进程管理任务，子进程跑任务)；以及前端UI展现（包括用户端与管理端）。
 * 自定义数据报表系统。该系统可以让用户指定数据源（DB、http interface等），通过一系列的配置生成数据报表。
-* 拉新助手app，使用公司内部出品的hybrid框架对拉新助手进行了重构。
 ---
 ### 其它信息
 * <i class="fa fa-fw fa-github"></i>GitHub&nbsp;: https://github.com/liuzheng644607
