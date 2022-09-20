@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" style="font-size: 100px">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, viewport-fix=cover" />
+    <title>国庆微信头像生成器</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script>
+      (function () {
+        var remBase = 100;
+        function setRem() {
+          var width = window.innerWidth;
+          var fontSize = remBase;
+          
+          if (width < 425) {
+            fontSize = (width / 375) * remBase;
+          }
+          console.log(width, fontSize)
+          document.documentElement.style.fontSize = fontSize + "px";
+        }
+        window.addEventListener("resize", setRem);
+        window.addEventListener("orientationchange", setRem);
+        setRem();
+      })();
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="content">
+        <div class="avatar-content">
+          <div class="avatar-inner">
+            <img class="avatar-origin" src="./images/s/default.png" alt="" />
+            <img class="avatar-post" src="./images/img2.png" alt="" />
+            <canvas id="canvas" width="400" height="400"></canvas>
+          </div>
+        </div>
+        <div class="action-bar">
+          <span class="btn choose-file">
+            选择头像
+            <input id="js-pick-image" type="file" accept="image/*" />
+          </span>
+          <button class="btn btn-save">下载头像</button>
+        </div>
+      </div>
+      <div class="footer">
+        <div class="inner"></div>
+      </div>
+    </div>
+    <script defer="defer" src="/lib/jquery/index.js"></script>
+    <script defer="defer" src="./index.js"></script>
+  </body>
+</html>
