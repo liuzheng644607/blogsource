@@ -1,11 +1,13 @@
 void (function () {
   var win = window;
   var doc = document;
+  const ossPrefix = '//lyanme.oss-cn-hangzhou.aliyuncs.com/lyan.me/demo/gimages';
+  const getSource = (s) => ossPrefix + s;
 
   class App {
-    currentSelectedImageSrc = './images/img2.png';
+    currentSelectedImageSrc = getSource('/images/img2.png');
 
-    currentAvatarSrc = './images/s/default.png';
+    currentAvatarSrc = getSource('/images/s/default.jpeg');
 
     canvasContext = null;
   
@@ -26,7 +28,7 @@ void (function () {
       var htmlStr = "";
       var curIndex = 1;
       while (curIndex <= count) {
-        var src = "./images/img" + curIndex + ".png";
+        var src = getSource("/images/img" + curIndex + ".png");
         htmlStr +=
           '<div class="img-item" data-img="' +
           src +
