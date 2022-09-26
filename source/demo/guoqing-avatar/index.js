@@ -81,6 +81,8 @@ void (function () {
       const { width, height } = ctx.canvas;
       const avatarSource = new Image(width, height);
       const postSource = new Image(width, height);
+      postSource.setAttribute("crossOrigin",'Anonymous');
+      avatarSource.setAttribute("crossOrigin",'Anonymous');
       postSource.src = this.currentSelectedImageSrc;
       avatarSource.src = this.currentAvatarSrc;
       const p1 = new Promise((resolve) => {
@@ -103,7 +105,7 @@ void (function () {
 
     download() {
       const link = document.createElement('a');
-      link.href = this.canvasContext.canvas.toDataURL();
+      link.href = this.canvasContext.canvas.toDataURL("image/png");
       link.download = Date.now() + '_avatar.png';
       link.click();
     }
