@@ -6,7 +6,7 @@
     "version": "3.9.0"
   },
   "scripts": {
-    "dev": "hexo server",
+    "dev": "hexo server --draft",
     "deploy": "hexo deploy",
     "gen": "hexo generate"
   },

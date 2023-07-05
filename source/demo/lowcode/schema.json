@@ -1,0 +1,259 @@
+{
+  "css": "  ",
+  "pageStyle": {
+    "compiled": "/**\n* The page style page_hiIeukzY\n*/\n",
+    "source": "/**\n* The page style page_hiIeukzY\n*/\n\n#page_hiIeukzY {\n  // The page style\n\n  // .className {\n  //   background-color: green;\n  // }\n}\n",
+    "type": "scss"
+  },
+  "children": [
+    {
+      "componentType": "builtIn",
+      "visible": true,
+      "hidden": {
+        "type": "a5f89d8b-5d4a-48e4-adbd-ea8959a92c59",
+        "literal": false
+      },
+      "children": [
+        {
+          "componentType": "builtIn",
+          "visible": true,
+          "hidden": {
+            "type": "a5f89d8b-5d4a-48e4-adbd-ea8959a92c59",
+            "literal": false
+          },
+          "children": [],
+          "loop": null,
+          "name": "树选择",
+          "id": "treeselect_orysvsf50l8",
+          "componentName": "TreeSelect",
+          "sourceName": "",
+          "props": {
+            "wrapFormItem": {
+              "type": "a5f89d8b-5d4a-48e4-adbd-ea8959a92c59",
+              "literal": true
+            },
+            "onChange": {
+              "type": "a5f89d8b-5d4a-48e4-adbd-ea8959a92c59"
+            },
+            "nodeSelectable": {
+              "type": "a5f89d8b-5d4a-48e4-adbd-ea8959a92c59"
+            },
+            "className": "_style_css_treeselect_orysvsf50l8",
+            "label": {
+              "type": "a5f89d8b-5d4a-48e4-adbd-ea8959a92c59",
+              "literal": "标题"
+            },
+            "treeCheckable": {
+              "type": "a5f89d8b-5d4a-48e4-adbd-ea8959a92c59",
+              "literal": false
+            },
+            "treeNodeLabelProp": {
+              "type": "a5f89d8b-5d4a-48e4-adbd-ea8959a92c59",
+              "literal": "name"
+            },
+            "_apaas_private_key_prefix_zyu1q59ikfd_style___status": "normal",
+            "layout": {
+              "type": "a5f89d8b-5d4a-48e4-adbd-ea8959a92c59",
+              "literal": "vertical"
+            },
+            "_apaas_private_key_prefix_zyu1q59ikfd_adv_setting_": {
+              "hidden": {
+                "type": "a5f89d8b-5d4a-48e4-adbd-ea8959a92c59",
+                "literal": false
+              },
+              "forcedParameters": {},
+              "loop": {
+                "itemName": {
+                  "type": "a5f89d8b-5d4a-48e4-adbd-ea8959a92c59",
+                  "literal": "item"
+                },
+                "data": [],
+                "indexName": {
+                  "type": "a5f89d8b-5d4a-48e4-adbd-ea8959a92c59",
+                  "literal": "index"
+                },
+                "enabled": false
+              },
+              "name": "树选择",
+              "appendClassName": ""
+            },
+            "size": {
+              "type": "a5f89d8b-5d4a-48e4-adbd-ea8959a92c59",
+              "literal": "default"
+            },
+            "labelAlign": {
+              "type": "a5f89d8b-5d4a-48e4-adbd-ea8959a92c59",
+              "literal": "left"
+            },
+            "showSearch": {
+              "type": "a5f89d8b-5d4a-48e4-adbd-ea8959a92c59",
+              "literal": false
+            },
+            "maxTagCount": {
+              "type": "a5f89d8b-5d4a-48e4-adbd-ea8959a92c59"
+            },
+            "_apaas_private_key_prefix_zyu1q59ikfd__form_vali_rules": {
+              "type": "a5f89d8b-5d4a-48e4-adbd-ea8959a92c59"
+            },
+            "treeNodeValueProp": {
+              "type": "a5f89d8b-5d4a-48e4-adbd-ea8959a92c59",
+              "literal": "id"
+            },
+            "disabled": {
+              "type": "a5f89d8b-5d4a-48e4-adbd-ea8959a92c59",
+              "literal": false
+            },
+            "placeholder": {
+              "type": "a5f89d8b-5d4a-48e4-adbd-ea8959a92c59",
+              "literal": ""
+            },
+            "allowClear": {
+              "type": "a5f89d8b-5d4a-48e4-adbd-ea8959a92c59",
+              "literal": false
+            },
+            "value": {
+              "type": "a5f89d8b-5d4a-48e4-adbd-ea8959a92c59"
+            },
+            "treeData": {
+              "variable": {
+                "compiled": "this.state.var10",
+                "source": "this.state.var10",
+                "type": "expression"
+              },
+              "type": "a5f89d8b-5d4a-48e4-adbd-ea8959a92c59",
+              "literal": [
+                {
+                  "children": [
+                    {
+                      "title": "Child Node1",
+                      "value": "0-0-1",
+                      "key": "0-0-1"
+                    },
+                    {
+                      "title": "Child Node2",
+                      "value": "0-0-2",
+                      "key": "0-0-2"
+                    }
+                  ],
+                  "title": "Node1",
+                  "value": "0-0",
+                  "key": "0-0"
+                },
+                {
+                  "title": "Node2",
+                  "value": "0-1",
+                  "key": "0-1"
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "loop": null,
+      "appId": "app_Ddd0NIW1",
+      "id": "Root_oXqrPldn",
+      "componentName": "Root",
+      "sourceName": "",
+      "props": {
+        "_apaas_private_key_prefix_zyu1q59ikfd_style___status": "normal",
+        "_apaas_private_key_prefix_zyu1q59ikfd_adv_setting_": {
+          "hidden": {
+            "type": "a5f89d8b-5d4a-48e4-adbd-ea8959a92c59",
+            "literal": false
+          },
+          "forcedParameters": {},
+          "loop": {
+            "itemName": {
+              "type": "a5f89d8b-5d4a-48e4-adbd-ea8959a92c59",
+              "literal": "item"
+            },
+            "data": [],
+            "indexName": {
+              "type": "a5f89d8b-5d4a-48e4-adbd-ea8959a92c59",
+              "literal": "index"
+            },
+            "enabled": false
+          },
+          "appendClassName": ""
+        },
+        "className": "_style_css_Root_oXqrPldn",
+        "id": "page_hiIeukzY"
+      }
+    }
+  ],
+  "schemaType": "APP",
+  "id": "page_hiIeukzY",
+  "dataSource": {
+    "list": [
+      {
+        "isReadonly": false,
+        "formUuid": "form-id_eZrMOl3A",
+        "name": "abc",
+        "description": "123",
+        "id": "form_PsBB9hXH",
+        "protocol": "VALUE",
+        "initialValue": {
+          "variable": {
+            "compiled": "[{\n    label:'选项1',\n    value:1\n}]",
+            "source": "[{\n    label:'选项1',\n    value:1\n}]",
+            "type": "expression"
+          },
+          "type": "a5f89d8b-5d4a-48e4-adbd-ea8959a92c59"
+        }
+      },
+      {
+        "isReadonly": false,
+        "formUuid": "form-id_J5LfeZf4",
+        "name": "var10",
+        "options": {
+          "shouldFetch": {
+            "type": "a5f89d8b-5d4a-48e4-adbd-ea8959a92c59",
+            "literal": true
+          },
+          "responseAdapter": {
+            "compiled": "\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports.responseAdapter = responseAdapter;\n\nfunction responseAdapter(response) {\n  var _data$data;\n\n  var data = response.content;\n  console.log(data);\n  var content = data.data !== undefined ? (_data$data = data.data) === null || _data$data === void 0 ? void 0 : _data$data.records : data;\n  var error = data.message || null;\n  var success = true;\n\n  if (data.code !== undefined && data.code !== 0) {\n    success = false;\n  }\n\n  return {\n    content: content,\n    success: success,\n    error: error\n  };\n}",
+            "source": "export function responseAdapter(response) {\n  const { content: data } = response;\n  console.log(data)\n\n  const content = (data.data !== undefined) ? data.data?.records : data;\n  const error = data.message || null;\n  let success = true;\n  if (data.code !== undefined && data.code !== 0) {\n    success = false;\n  }\n  return {\n    content,\n    success,\n    error,\n  };\n}\n  ",
+            "type": "module"
+          },
+          "enableCORSProxy": false,
+          "method": "POST",
+          "loadDataFeedback": {
+            "success": {},
+            "failed": {},
+            "loading": {}
+          },
+          "responseAdapter-switch": {
+            "compiled": "\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports.responseAdapter = responseAdapter;\n\nfunction responseAdapter(response) {\n  var _data$data;\n\n  var data = response.content;\n  console.log(data);\n  var content = data.data !== undefined ? (_data$data = data.data) === null || _data$data === void 0 ? void 0 : _data$data.record : data;\n  var error = data.message || null;\n  var success = true;\n\n  if (data.code !== undefined && data.code !== 0) {\n    success = false;\n  }\n\n  return {\n    content: content,\n    success: success,\n    error: error\n  };\n}",
+            "source": "export function responseAdapter(response) {\n  const { content: data } = response;\n  console.log(data)\n\n  const content = (data.data !== undefined) ? data.data?.record : data;\n  const error = data.message || null;\n  let success = true;\n  if (data.code !== undefined && data.code !== 0) {\n    success = false;\n  }\n  return {\n    content,\n    success,\n    error,\n  };\n}\n  ",
+            "type": "module"
+          },
+          "autoLoad": true,
+          "params": {
+            "variable": {
+              "compiled": "{pageNum:1\n}",
+              "source": "{pageNum:1\n}",
+              "type": "expression"
+            },
+            "type": "a5f89d8b-5d4a-48e4-adbd-ea8959a92c59",
+            "literal": null
+          },
+          "isSync": false,
+          "url": {
+            "type": "a5f89d8b-5d4a-48e4-adbd-ea8959a92c59",
+            "literal": "/frame-xpaas/app/api/apaas/v1/app/design/list/page"
+          }
+        },
+        "description": "d",
+        "id": "form_joqVodzd",
+        "protocol": "REMOTE"
+      }
+    ]
+  },
+  "modules": {
+    "pageClass": {
+      "compiled": "\nfunction _typeof(obj) { \"@babel/helpers - typeof\"; if (typeof Symbol === \"function\" && typeof Symbol.iterator === \"symbol\") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === \"function\" && obj.constructor === Symbol && obj !== Symbol.prototype ? \"symbol\" : typeof obj; }; } return _typeof(obj); }\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports[\"default\"] = void 0;\n\nvar _sdk = require(\"sdk\");\n\nfunction _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError(\"Cannot call a class as a function\"); } }\n\nfunction _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if (\"value\" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }\n\nfunction _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }\n\nfunction _inherits(subClass, superClass) { if (typeof superClass !== \"function\" && superClass !== null) { throw new TypeError(\"Super expression must either be null or a function\"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }\n\nfunction _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }\n\nfunction _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }\n\nfunction _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === \"object\" || typeof call === \"function\")) { return call; } else if (call !== void 0) { throw new TypeError(\"Derived constructors may only return object or undefined\"); } return _assertThisInitialized(self); }\n\nfunction _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError(\"this hasn't been initialised - super() hasn't been called\"); } return self; }\n\nfunction _isNativeReflectConstruct() { if (typeof Reflect === \"undefined\" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === \"function\") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }\n\nfunction _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }\n\nvar PageRuntime = /*#__PURE__*/function (_PageRuntimeBase) {\n  _inherits(PageRuntime, _PageRuntimeBase);\n\n  var _super = _createSuper(PageRuntime);\n\n  function PageRuntime() {\n    _classCallCheck(this, PageRuntime);\n\n    return _super.apply(this, arguments);\n  }\n\n  _createClass(PageRuntime, [{\n    key: \"componentDidMount\",\n    value: // constructor(...args) {\n    //   super(...args)\n    // }\n    function componentDidMount() {\n      console.log(\"PageRuntime\\uFF1Acurrent page address \".concat(location.href));\n    }\n  }, {\n    key: \"componentWillUnmount\",\n    value: function componentWillUnmount() {\n      console.log('componentWillUnmount');\n    }\n  }]);\n\n  return PageRuntime;\n}(_sdk.PageRuntimeBase);\n\nexports[\"default\"] = PageRuntime;",
+      "source": "\n/**\n* Dear users, hello: page JS panel is advanced use, generally not recommended for ordinary users to use, if you need to use, please make sure that you have a research and development background, can self-troubleshooting problems.。\n* We can use JS panel to develop some custom high function\n*  1. Import PageRuntimeBase and utils from `sdk`\n*  2. Export the default class, and the class extends PageRuntimeBase\n*  3. Define the life cycle method, two life cycle methods are available:\n*      `componentDidMount`, `componentWillUnmount`, which are called after the page loads and before the page leaves, respectively\n*  4. Define the page runtime method:\n*  5. Using page states: `this.state.xxx`\n*  6. Using utils\n*      this.state.variable name\n*/\n\nimport { PageRuntimeBase, utils } from 'sdk';\n\nexport default class PageRuntime extends PageRuntimeBase {\n  // constructor(...args) {\n  //   super(...args)\n  // }\n\n  componentDidMount() {\n    console.log(`PageRuntime：current page address ${location.href}`);\n  }\n\n  componentWillUnmount() {\n    console.log('componentWillUnmount');\n  }\n}\n",
+      "type": "module"
+    }
+  }
+}

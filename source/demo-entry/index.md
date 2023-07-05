@@ -5,6 +5,7 @@ date: 2019-03-01 23:01:23
 tags:
 ---
 <ol>
+    <li><a target="_blank" href="/demo/html-preview">html预览</a></li>
     <li><a target="_blank" href="https://draw.lyan.me/chat-room">仿微信UI聊天室</a></li>
     <li><a target="_blank" href="https://draw.lyan.me/picker">滚动选择器</a></li>
     <li><a target="_blank" href="https://draw.lyan.me/gobang">canvas画的五子棋demo</a></li>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>预览</title>
+  <style>
+    html,body,.container {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: 1fr;
+      grid-column-gap: 10px;
+      /* grid-row-gap: 10px; */
+    }
+    .preview-container {
+      width: 640px;
+      height: 100%;
+    }
+    .preview-container iframe {
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <textarea name="" id="" cols="30" placeholder="请输入html源码..." rows="10"></textarea>
+    <div>
+      <button id="btn-preview">新页面打开预览</button>
+      <div class="preview-container"></div>
+    </div>
+  </div>
+  <script>
+    const textarea = document.querySelector('textarea');
+    const previewContainer = document.querySelector('.preview-container');
+    const btnPreview = document.querySelector('#btn-preview');
+    textarea.addEventListener('input', (e) => {
+      const content = e.target.value;
+      renderInSandbox(content);
+    });
+
+    btnPreview.addEventListener('click', (e) => {
+      const popWindow = window.open('about:blank');
+      popWindow.document.body.innerHTML = textarea.value;
+    });
+
+    const renderInSandbox = (content) => {
+      previewContainer.innerHTML = '';
+      const iframe = document.createElement('iframe');
+      iframe.style.border = 'none';
+      iframe.style.width = '100%';
+      previewContainer.appendChild(iframe)
+      iframe.contentDocument.body.innerHTML = content;
+      
+    }
+  </script>
+</body>
+</html>

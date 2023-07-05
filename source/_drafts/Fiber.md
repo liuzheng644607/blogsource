@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 浅析React Fiber
-date: 2021-04-22 14:49:44
+date: 2020-04-22 14:49:44
 tags:
 ---
 <!-- $theme: default -->
@@ -158,11 +158,6 @@ reconcile过程分为2个阶段（phase）：
 
 ---
 
-### 生命周期
-![60%](http://ov532c17r.bkt.clouddn.com/qrfalo79gw9.png)
-
----
-
 ### fiber 数据结构
 对于每个节点来说，Fiber 节点不光存储了对应元素的基本信息，还要保存一些用于任务调度的信息，一个Fiber 主要有以下字段
 
@@ -201,24 +196,24 @@ source code：Root/packages/react-reconciler/ReactFiber.js#68
 
 页面包含一个列表，通过该列表渲染出一个button和一组Item，Item中包含一个div，其中的内容为数字，对应列表[1,2,3]。通过点击button，可以使列表中的所有数字进行平方。另外有一个按钮，点击可以调节字体大小。
 
-![50%](http://ov532c17r.bkt.clouddn.com/2kfcu3w989d.png)
+![50%](/assets/fiberimg/1.webp)
 
 
 ---
 
 初始化生成 fiber-tree, 类似于 之前的virtual dom tree
 
-![60%](http://ov532c17r.bkt.clouddn.com/a1ktfox63y.png)
+![60%](/assets/fiberimg/2.webp)
 
 ---
 react还会维护一个workInProgressTree。workInProgressTree用于计算更新，完成reconciliation过程。(double buffering pooling technique, 中文翻译：叫双缓冲池技术，源码在：ReactFiber.js#244)
 
-![60%](http://ov532c17r.bkt.clouddn.com/1j2185dqlt1.png)
+![60%](/assets/fiberimg/3.webp)
 
 ---
 setState后， 调用this.updater.enqueueSetState, 将更新放入 List 组件的 update queue中,然后调用 scheduleWork(fiber, expirationTime), 让 scheduler 去处理更新。scheduler会根据当前主线程的使用情况来处理这次update。
 
-![60%](http://ov532c17r.bkt.clouddn.com/0wutx4x76tyr.png)
+![60%](/assets/fiberimg/4.webp)
 
 ---
 如果此时有时间可以处理，那么就会进入workLoop 循环。
@@ -247,26 +242,26 @@ work loop机制可以让react在计算状态和等待状态之间进行切换。
 
 ---
 因为根节点上的更新队列为null，所以直接从fiber-tree上将根节点复制到workInProgressTree中去。根节点中包含指向子节点（List）的指针 child。
-![60%](http://ov532c17r.bkt.clouddn.com/v8krxz4ng5c.png)
+![60%](/assets/fiberimg/a.webp)
 
 ---
 
 根节点没有什么更新操作，根据其child指针，接下来把List节点及其对应的update queue也复制到workinprogress中。List插入后，向其父节点返回，标志根节点的处理完成
 
-![60%](http://ov532c17r.bkt.clouddn.com/5hezwh3h9t.png)
+![60%](/assets/fiberimg/b.webp)
 
 根节点处理完成后，react此时检查时间片是否用完。如果没有用完，根据其保存的下个工作单元的信息开始处理下一个节点List。（此时又潜出水面看一看）
 
 ---
 接下来处理List 的workLoop。因为List中有更新，react会更新List的state值，然后调用instance.render()，然后得到一组通过更新后的List值生成的elements, react会根据生成elements的类型，来决定fiber是否可重用。对于当前情况来说，新生成的elments类型并没有变（依然是Button和Item），所以react会直接从fiber-tree中复制这些elements对应的fiber到workInProgress 中。并给List打上标签，因为这是一个需要更新的节点.
 
-![50%](http://ov532c17r.bkt.clouddn.com/mw05bvl2qeq.png)
+![50%](/assets/fiberimg/c.webp)
 
 ---
 
 如果还有时间，接下来处理button，
 button没有任何子节点，所以此时可以返回，并标志button处理完成。
-![60%](http://ov532c17r.bkt.clouddn.com/9f55f3tvqyq.png)
+![60%](/assets/fiberimg/d.webp)
 
 ---
 
@@ -276,13 +271,13 @@ button没有任何子节点，所以此时可以返回，并标志button处理�
 
 ---
 
-![50%](http://ov532c17r.bkt.clouddn.com/n407sq8cz1p.png)
+![50%](/assets/fiberimg/e.webp)
 如果已经处理到 div 节点，div已经是叶子节点，且没有任何兄弟节点，且其值已经更新，这时候，需要将此节点改变产生的effect合并到父节点中。此时react会维护一个列表，其中记录所有产生effect的元素。（effect其实就是对真实DOM的改动）
 
 ---
 当处理完整个fiber tree 过后，此时react将workInProgress标记为pendingCommit，意味着可以进入commit 阶段了。
 
-![45%](http://ov532c17r.bkt.clouddn.com/eko7gdzu2pd.png)
+![45%](/assets/fiberimg/f.webp)
 
 
 进入阶段2过后，react会根据reconciliation阶段计算出来的effect-list来更新DOM。
